@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/app-cars-rental/static/css/main.7acaea2f.css",
+    "main.js": "/app-cars-rental/static/js/main.f279a6dd.js",
+    "index.html": "/app-cars-rental/index.html",
+    "main.7acaea2f.css.map": "/app-cars-rental/static/css/main.7acaea2f.css.map",
+    "main.f279a6dd.js.map": "/app-cars-rental/static/js/main.f279a6dd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.f279a6dd.js"
+  ]
+}

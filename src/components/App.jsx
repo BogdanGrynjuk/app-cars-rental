@@ -10,7 +10,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      app-cars-rent
+      App cars rental CarGo
     </div>
   );
 };

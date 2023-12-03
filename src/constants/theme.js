@@ -1,3 +1,5 @@
+const breakpoints = ['320', '768', '1280'];
+
 export const theme = Object.freeze({
   colors: {
     black: 'rgba(18, 20, 23, 1)',
@@ -34,8 +36,9 @@ export const theme = Object.freeze({
     normal: '1px solid',
   },
 
-  //Радіус для бордера, приклад border-radius: ${p => p.theme.radii.normal};
-  radii: {
-    normal: '12px',
+  mq: {
+    mobile: `min-width: ${breakpoints[0]}px`, // Мобілка
+    tablet: `min-width: ${breakpoints[1]}px`, // Планшет
+    desktop: `min-width: ${breakpoints[2]}px`, // Дескстоп
   },
 });

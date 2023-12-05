@@ -25,11 +25,13 @@ export const Container = styled.div`
   padding: 16px;
 
   @media screen and (${ p => p.theme.mq.tablet}) {
-    width: 768px;      
+    width: 768px;
+    padding: 16px 20px;
   }
 
   @media screen and (${ p => p.theme.mq.desktop}) {
-    width: 1280px;      
+    width: 1280px;
+    padding: 16px 24px;      
   }
 `;
 
@@ -64,9 +66,9 @@ export const Link = styled(NavLink)`
   font-weight: ${p => p.theme.fontWeights.bold};
   text-decoration: none;
   transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  text-shadow: rgba(0, 0, 0, 0.5) 2px 3px 5px;
+  text-shadow: ${p => p.theme.colors.grey} 2px 3px 5px;
 
   &:hover{
-    text-shadow: rgba(0, 0, 0, 0.5) 2px 8px 5px;
+    text-shadow: ${p => p.theme.colors.grey} 2px 8px 5px;
   };
 `;

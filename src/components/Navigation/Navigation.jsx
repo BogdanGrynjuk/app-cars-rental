@@ -12,6 +12,6 @@ const Navigation = ({onClose}) => {
 };
 
 Navigation.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
 }
 export default Navigation;

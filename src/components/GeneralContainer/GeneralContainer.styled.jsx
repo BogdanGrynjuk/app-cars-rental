@@ -1,0 +1,17 @@
+import styled from "@emotion/styled";
+
+export const Container = styled.div`
+  width: 320px;
+  padding: 0 16px;
+  margin: 0 auto;
+
+  @media screen and (${p => p.theme.mq.tablet}) {
+    width: 768px;
+    padding: 0 20px;
+  }
+
+  @media screen and (${p => p.theme.mq.desktop}) {
+    width: 1280px;
+    padding: 0 24px;      
+  }
+`;

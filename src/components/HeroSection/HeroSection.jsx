@@ -1,6 +1,6 @@
 import GeneralContainer from "components/GeneralContainer";
 import Logotype from "components/Logo/Logo";
-import { Section, Content, TextMain, TextSecondary } from "./HeroSection.styled";
+import { Section, Content, TextMain, TextSecondary, DecorLine, Btn } from "./HeroSection.styled";
 
 const HeroSection = () => {
   return (
@@ -8,7 +8,9 @@ const HeroSection = () => {
       <GeneralContainer>
         <Content>
           <TextMain><Logotype /> - is for those who value service and comfort</TextMain>
-          <TextSecondary>Car rental and rental in Ukraine</TextSecondary>
+          <DecorLine/>
+          <TextSecondary>Car rental in Ukraine</TextSecondary>
+          <Btn type="button">Choose auto</Btn>
         </Content>
       </GeneralContainer>
     </Section>

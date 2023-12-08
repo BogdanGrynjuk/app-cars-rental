@@ -22,11 +22,11 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 320px;
-  padding: 16px;
+  padding: 8px;
 
   @media screen and (${ p => p.theme.mq.tablet}) {
     width: 768px;
-    padding: 16px 20px;
+    padding: 12px 20px;
   }
 
   @media screen and (${ p => p.theme.mq.desktop}) {

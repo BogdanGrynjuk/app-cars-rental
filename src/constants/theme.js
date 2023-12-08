@@ -8,7 +8,7 @@ export const theme = Object.freeze({
     grey: 'rgb(138, 138, 137, 1)',
     greyForBgInput: 'rgba(247, 247, 251, 1)',
     greyForSelectInput: 'rgba(18, 20, 23, 0.2)',
-    liteBlue: 'rgba(52, 112, 255, 1)',
+    lighteBlue: 'rgba(52, 112, 255, 1)',
     blue: 'rgba(11, 68, 205, 1)',
   },
 
@@ -37,8 +37,8 @@ export const theme = Object.freeze({
   },
 
   mq: {
-    mobile: `min-width: ${breakpoints[0]}px`, // Мобілка
-    tablet: `min-width: ${breakpoints[1]}px`, // Планшет
-    desktop: `min-width: ${breakpoints[2]}px`, // Дескстоп
+    mobile: `min-width: ${breakpoints[0]}px`,
+    tablet: `min-width: ${breakpoints[1]}px`,
+    desktop: `min-width: ${breakpoints[2]}px`,
   },
 });

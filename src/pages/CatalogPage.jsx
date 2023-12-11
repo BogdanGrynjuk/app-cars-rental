@@ -1,6 +1,12 @@
-const CatalogPage= () => {
+import CarsList from "components/CarsList";
+
+const CatalogPage = () => { 
+  
   return (
-    <div>This is CatalogPage</div>
+    <>
+      <div>There should be a form here</div>
+      <CarsList />
+    </>
   );
 };
 

@@ -41,4 +41,9 @@ export const theme = Object.freeze({
     tablet: `min-width: ${breakpoints[1]}px`,
     desktop: `min-width: ${breakpoints[2]}px`,
   },
+
+  radii: {
+    normal: '12px',
+    large: '14px',
+  },
 });

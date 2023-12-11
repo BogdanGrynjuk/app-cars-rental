@@ -69,7 +69,7 @@ export const TextSecondary = styled.h2`
 `;
 
 export const Btn = styled.button`
-   width: 274px;  
+  width: 100%;  
   padding: 12px;
   border: none;
   border-radius: 12px;
@@ -86,4 +86,8 @@ export const Btn = styled.button`
     background-color: ${p => p.theme.colors.lighteBlue};
     box-shadow: rgba(0, 0, 0, 0.5) 2px 8px 5px;
   };
+
+  @media screen and (${p => p.theme.mq.tablet}) {
+    width: 274px; 
+  }  
 `

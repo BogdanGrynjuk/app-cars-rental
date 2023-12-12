@@ -10,7 +10,7 @@ const Layout = () => {
     const content = document.getElementById('content');
     const headerHeight = header.offsetHeight;
 
-    content.style.paddingTop = headerHeight + 'px';
+    content.style.paddingTop = `${headerHeight}px`;
   }, []); 
   
   return (

@@ -66,8 +66,7 @@ export const BasicInfoText = styled.p`
   };
 `;
 
-export const DescriptionList = styled.ul`
-  
+export const DescriptionList = styled.ul`  
   display: flex;  
   flex-direction: row;
   row-gap: 4px;

@@ -15,9 +15,20 @@ const CarsList = () => {
   
   const handleLoadMore = async () => {
     await setVisibleCards(prevState => prevState + 8);
-    const lastElement = carsListRef.current.lastElementChild;
-    lastElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    
+    const newlyLoadedElements = Array.from(carsListRef.current.children).slice(-8)[0];
+    const headerHeight = document.getElementById('app-bar').offsetHeight;
+    const offset = headerHeight + 10
+
+
+    if (newlyLoadedElements) {
+      const elementPosition = newlyLoadedElements.getBoundingClientRect().top;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollBy({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   useEffect(() => {
@@ -25,9 +36,9 @@ const CarsList = () => {
   }, [dispatch])
 
   return (
-    <Wrapper ref={carsListRef}>
+    <Wrapper >
       <GeneralContainer>
-        <List>
+        <List ref={carsListRef}>
           {cars.slice(0, visibleCards).map(car => (
             <CarsItem key={car.id} {...car} />
           ))}

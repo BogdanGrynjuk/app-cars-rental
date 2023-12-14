@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import {
   Container,
   Content,
@@ -11,10 +12,14 @@ import {
   DescriptionItem,
   Button
 } from "./CarsItem.styled";
+import CardCarModal from "components/Modals/CardCarModal";
 
-const CarsItem = ({img, make, model, year, rentalPrice, address, rentalCompany, type, mileage, accessories}) => {
-  return (
-     <Container>
+const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalCompany, type, mileage, accessories }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+ return (
+    <Container>
       <Content>
 
         <ThumbImg>
@@ -53,18 +58,16 @@ const CarsItem = ({img, make, model, year, rentalPrice, address, rentalCompany, 
         </DescriptionList>
       </BlockInfo>
       </Content>
-      <Button
-        
+      <Button        
         type="button"
-        onClick={() => console.log("toggleModal")}
-      
+        onClick={toggleModal}      
       >
         Learn more
-      </Button>
+     </Button>
+     {isModalOpen && <CardCarModal onClose={ toggleModal } />}
        
     </Container>
-      
-  )
+  );
 };
 
 export default CarsItem;

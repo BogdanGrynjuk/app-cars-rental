@@ -1,38 +1,93 @@
-import { useEffect } from "react";
+import PropTypes from "prop-types";
 import { createPortal } from 'react-dom';
+import { useEffect, useRef, useState } from "react";
 
-import { ModalBackdrop, ModalContent } from "./CardCarModal.styled";
+import { Backdrop, Content, ModalBackdrop, ModalContent, BtnClose, IconClose } from "./CardCarModal.styled";
 
 const modalRoot = document.querySelector('#modal-card-car');
 
 
-const Modal = ({ onClose, children }) => {
+const CardCarModal = ({ onClose }) => {
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+  const modal = useRef();
+  
+  const handleClose = () => {
+    const modalElement = modal.current;
+    modalElement.classList.replace('isOpen', 'isClose');
+    setTimeout(() => {
+      onClose();
+    }, 300);
+  };
+
   const handleKeyDown = (event) => {
     if (event.code === "Escape") {
-      onClose();
+      handleClose();
     };
   };
   
   const handleBackdropClick = (event) => {
     if (event.currentTarget === event.target) {
-      onClose();
+      handleClose();
     };
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const modalElement = modal.current;
+    modalElement.classList.add('isOpen');
+  }, []); 
+
+  useEffect(() => {
+    document.body.style.overflowY = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflowY = 'auto';
+      window.removeEventListener('keydown', handleKeyDown);
+    }
   });
 
   return createPortal(
-    <ModalBackdrop onClick={handleBackdropClick}>
-      <ModalContent>
-        <button type="button" onClick={onClose}>X</button>
-        <div>This is Modal</div>
-      </ModalContent>
-    </ModalBackdrop>,
+    <>
+      {
+        (viewportWidth < 768)
+          ? (
+            <Backdrop ref={modal}>
+              <BtnClose type="button" onClick={handleClose}>
+                <IconClose size="25px" />
+              </BtnClose>
+              <Content>
+                <div>There should be a card car</div>
+              </Content>
+            </Backdrop>)                
+          : (
+            <ModalBackdrop ref={modal} onClick={handleBackdropClick}>
+              <ModalContent >
+                <BtnClose type="button" onClick={handleClose}>
+                  <IconClose size="24px" />
+                </BtnClose>
+                <div>There should be a card car</div>
+                
+              </ModalContent>
+            </ModalBackdrop>
+          )
+      }
+    </>,
     modalRoot
   );
 };
 
-export default Modal;
+CardCarModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+}
+
+export default CardCarModal;

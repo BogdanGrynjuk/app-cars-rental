@@ -16,7 +16,8 @@ import CardCarModal from "components/Modals/CardCarModal";
 
 const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalCompany, type, mileage, accessories }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
  return (
     <Container>
@@ -24,19 +25,7 @@ const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalComp
 
         <ThumbImg>
         <Img src={img} alt={`${make} ${model}`} />
-        {/* <button
-          onClick={!favoriteStatus ? incrementFavorite : decrementFavorite}
-          className='buttonHeart'
-        >
-          {!favoriteStatus ? (
-            <HiOutlineHeart className='icon' />
-          ) : (
-            <HiOutlineHeart
-              className='icon'
-              style={{ fill: "blue", color: "blue" }}
-            />
-          )}
-        </button> */}
+      
       </ThumbImg>
 
       <BlockInfo>
@@ -60,11 +49,11 @@ const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalComp
       </Content>
       <Button        
         type="button"
-        onClick={toggleModal}      
+        onClick={openModal}      
       >
         Learn more
      </Button>
-     {isModalOpen && <CardCarModal onClose={ toggleModal } />}
+     {isModalOpen && <CardCarModal onClose={ closeModal } />}
        
     </Container>
   );

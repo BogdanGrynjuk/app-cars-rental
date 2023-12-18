@@ -49,7 +49,12 @@ export const BtnMenuNavigation = styled.button`
 `;
 
 export const IconMenu = styled(IoMenuSharp)`
- 
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  filter: drop-shadow(rgba(0, 0, 0, 0.8) 2px 3px 5px);
+
+  &:hover {      
+    filter: drop-shadow(rgba(0, 0, 0, 0.8) 2px 8px 5px);
+  }; 
 `;
 
 export const Link = styled(NavLink)`

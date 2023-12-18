@@ -3,11 +3,11 @@ import { createPortal } from 'react-dom';
 import { useEffect, useRef, useState } from "react";
 
 import { Backdrop, Content, ModalBackdrop, ModalContent, BtnClose, IconClose } from "./CardCarModal.styled";
+import CardCar from "components/CardCar";
 
 const modalRoot = document.querySelector('#modal-card-car');
 
-
-const CardCarModal = ({ onClose }) => {
+const CardCarModal = ({ onClose, carId }) => {
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
   const modal = useRef();
@@ -63,10 +63,10 @@ const CardCarModal = ({ onClose }) => {
           ? (
             <Backdrop ref={modal}>
               <BtnClose type="button" onClick={handleClose}>
-                <IconClose size="25px" />
+                <IconClose size="24px" />
               </BtnClose>
               <Content>
-                <div>There should be a card car</div>
+                <CardCar/>
               </Content>
             </Backdrop>)                
           : (
@@ -75,8 +75,7 @@ const CardCarModal = ({ onClose }) => {
                 <BtnClose type="button" onClick={handleClose}>
                   <IconClose size="24px" />
                 </BtnClose>
-                <div>There should be a card car</div>
-                
+                <CardCar carId={ carId } />                
               </ModalContent>
             </ModalBackdrop>
           )

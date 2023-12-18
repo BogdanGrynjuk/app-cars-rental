@@ -19,41 +19,39 @@ const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalComp
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
- return (
+  return (
     <Container>
       <Content>
-
         <ThumbImg>
-        <Img src={img} alt={`${make} ${model}`} />
-      
-      </ThumbImg>
+          <Img src={img} alt={`${make} ${model}`} />
+        </ThumbImg>
 
-      <BlockInfo>
-        <BasicInfoWrapper>
-          <BasicInfoText>
-            {make} <span>{model}</span>, {year}
-          </BasicInfoText>
-          <BasicInfoText>{rentalPrice}</BasicInfoText>
-        </BasicInfoWrapper>        
+        <BlockInfo>
+          <BasicInfoWrapper>
+            <BasicInfoText>
+              {make} <span>{model}</span>, {year}
+            </BasicInfoText>
+            <BasicInfoText>{rentalPrice}</BasicInfoText>
+          </BasicInfoWrapper>
       
-        <DescriptionList>
-          <DescriptionItem>{address.split(',')[1]}</DescriptionItem>
-          <DescriptionItem>{address.split(',')[2]}</DescriptionItem>
-          <DescriptionItem>{rentalCompany}</DescriptionItem>
-          <DescriptionItem>{type}</DescriptionItem>
-          <DescriptionItem>{model}</DescriptionItem>
-          <DescriptionItem>{mileage}</DescriptionItem>
-          <DescriptionItem>{accessories[0]}</DescriptionItem>
-        </DescriptionList>
-      </BlockInfo>
+          <DescriptionList>
+            <DescriptionItem>{address.split(',')[1]}</DescriptionItem>
+            <DescriptionItem>{address.split(',')[2]}</DescriptionItem>
+            <DescriptionItem>{rentalCompany}</DescriptionItem>
+            <DescriptionItem>{type}</DescriptionItem>
+            <DescriptionItem>{model}</DescriptionItem>
+            <DescriptionItem>{mileage}</DescriptionItem>
+            <DescriptionItem>{accessories[0]}</DescriptionItem>
+          </DescriptionList>
+        </BlockInfo>
       </Content>
-      <Button        
+      <Button
         type="button"
-        onClick={openModal}      
+        onClick={openModal}
       >
         Learn more
-     </Button>
-     {isModalOpen && <CardCarModal onClose={ closeModal } />}
+      </Button>
+      {isModalOpen && <CardCarModal onClose={closeModal} carId={id} />}
        
     </Container>
   );

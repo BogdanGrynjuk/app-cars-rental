@@ -30,9 +30,6 @@ export const Content = styled.div`
   text-align: center;
 `;
 
-
-///////////////////////////
-
 export const ModalBackdrop = styled.div`
   position: fixed;
   top: 0;
@@ -85,6 +82,5 @@ export const IconClose = styled(IoCloseSharp)`
   &:hover {      
     filter: drop-shadow(rgba(0, 0, 0, 0.8) 2px 8px 5px);
   };  
-  
-`
+`;
 

@@ -34,6 +34,6 @@ const AppBarModal = ({ onClose }) => {
 
 AppBarModal.propTypes = {
   onClose: PropTypes.func.isRequired,
-}
+};
 
 export default AppBarModal;

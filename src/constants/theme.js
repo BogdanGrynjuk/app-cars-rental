@@ -4,7 +4,7 @@ export const theme = Object.freeze({
   colors: {
     black: 'rgba(18, 20, 23, 1)',
     white: 'rgba(255, 255, 255, 1)',
-    liteGrey: 'rgba(138, 138, 137, 0.2)',
+    lighteGrey: 'rgba(138, 138, 137, 0.2)',
     secondaryGrey: 'rgba(18, 20, 23, 0.5)',
     grey: 'rgb(138, 138, 137, 1)',
     greyForBgInput: 'rgba(247, 247, 251, 1)',

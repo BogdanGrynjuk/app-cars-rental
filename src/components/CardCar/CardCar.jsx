@@ -20,9 +20,9 @@ const CardCar = ({ carId }) => {
     description,
     accessories,
     functionalities,
-    rentalPrice,
-    rentalCompany,
-    mileage,
+    // rentalPrice,
+    // rentalCompany,
+    // mileage,
   } = cars.find(car => car.id === carId);
   
   return (

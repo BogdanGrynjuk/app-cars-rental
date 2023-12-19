@@ -71,6 +71,14 @@ const CardCar = ({ carId }) => {
 
         </SecondaryInfoWrapper>
 
+        <SecondaryInfoWrapper>
+          <SecondaryInfoTitle>
+            Rental Conditions:
+          </SecondaryInfoTitle>
+           
+
+        </SecondaryInfoWrapper>
+
       </BlockInfo>
     </Wrapper>
   );

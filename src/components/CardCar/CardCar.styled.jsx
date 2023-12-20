@@ -90,5 +90,49 @@ export const SecondaryInfoTitle = styled.h2`
   font-size: ${ p => p.theme.fontSizes.s};
   font-weight: ${ p => p.theme.fontWeights.medium};
   line-height: 20px;
+  margin-bottom: 8px;
 `;
+
+export const RentalConditionsList = styled.ul`
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  
+`;
+
+export const RentalConditionsItem = styled.li`
+  font-size: ${ p => p.theme.fontSizes.xs};
+  background-color: rgba(249, 249, 249, 1);
+  padding: 7px 14px;
+  border-radius: ${p => p.theme.radii.large};
+
+  & > span {    
+    font-weight: ${ p => p.theme.fontWeights.bold};
+    color: ${ p => p.theme.colors.lighteBlue};
+  };
+`;
+
+export const Button = styled.a`
+  width: 168px;  
+  padding: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  border: ${p => p.theme.borders.none};
+  border-radius: ${p => p.theme.radii.normal};
+  background-color: ${p => p.theme.colors.blue};
+  color: ${p => p.theme.colors.white};
+  font-family: ${p => p.theme.fontFamily.manrope};
+  font-size: ${p => p.theme.fontSizes.s};
+  font-weight: ${p => p.theme.fontWeights.bold};
+  line-height: 24px;
+  box-shadow:  rgba(0, 0, 0, 0.5) 2px 3px 5px; 
+  cursor: pointer;
+  
+  &:hover {
+    background-color: ${p => p.theme.colors.lighteBlue};
+    box-shadow: rgba(0, 0, 0, 0.5) 2px 8px 5px;
+  };
+  
+`
+
 

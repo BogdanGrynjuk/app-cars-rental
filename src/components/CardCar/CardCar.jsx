@@ -1,5 +1,6 @@
+import PropTypes from "prop-types";
 import { selectCars } from "redux/selectors";
-import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle } from "./CardCar.styled";
+import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle, RentalConditionsList, RentalConditionsItem, Button } from "./CardCar.styled";
 import { useSelector } from "react-redux";
 
 
@@ -20,10 +21,13 @@ const CardCar = ({ carId }) => {
     description,
     accessories,
     functionalities,
-    // rentalPrice,
-    // rentalCompany,
-    // mileage,
+    rentalPrice,
+    rentalConditions,
+    mileage,
   } = cars.find(car => car.id === carId);
+
+  const conditions = rentalConditions.split('\n');
+  const age = conditions[0].split(':')[1];
   
   return (
     <Wrapper>
@@ -43,8 +47,8 @@ const CardCar = ({ carId }) => {
             <DescriptionItem>Id: {id}</DescriptionItem>
             <DescriptionItem>Year: {year}</DescriptionItem>
             <DescriptionItem>Type: {type}</DescriptionItem>
-          
           </DescriptionList>
+
           <DescriptionList>
             <DescriptionItem>Fuel Consumption: {fuelConsumption}</DescriptionItem>
             <DescriptionItem>Engine Size: {engineSize}</DescriptionItem>
@@ -58,14 +62,14 @@ const CardCar = ({ carId }) => {
           <SecondaryInfoTitle>
             Accessories and functionalities:
           </SecondaryInfoTitle>
-           <DescriptionList>
-            {accessories.map(accessory => 
-              <DescriptionItem>{accessory}</DescriptionItem>)
+          <DescriptionList>
+            {accessories.map((accessory, index) =>
+              <DescriptionItem key={index}>{accessory}</DescriptionItem>)
             }
           </DescriptionList>
-           <DescriptionList>
-            {functionalities.map(functionality => 
-              <DescriptionItem>{functionality}</DescriptionItem>)
+          <DescriptionList>
+            {functionalities.map((functionality, index) =>
+              <DescriptionItem key={index}>{functionality}</DescriptionItem>)
             }
           </DescriptionList>
 
@@ -75,13 +79,28 @@ const CardCar = ({ carId }) => {
           <SecondaryInfoTitle>
             Rental Conditions:
           </SecondaryInfoTitle>
-           
-
+          <RentalConditionsList>
+            <RentalConditionsItem>{conditions[0].split(':', 1)}: <span>{age}</span></RentalConditionsItem>
+            <RentalConditionsItem>{conditions[1]}</RentalConditionsItem>
+            <RentalConditionsItem>{conditions[2]}</RentalConditionsItem>
+            <RentalConditionsItem>Mileage: <span>{mileage.toLocaleString('en-US')}</span></RentalConditionsItem>
+            <RentalConditionsItem>Price: <span>{rentalPrice.slice(1)}$</span></RentalConditionsItem>
+          </RentalConditionsList>
         </SecondaryInfoWrapper>
+
+        <Button
+          href = 'tel:+380730000000' 
+        >
+          Rental car
+        </Button>
 
       </BlockInfo>
     </Wrapper>
   );
+};
+
+CardCar.propTypes = {
+  carId: PropTypes.number.isRequired,
 };
 
 export default CardCar;

@@ -71,7 +71,6 @@ export const DescriptionList = styled.ul`
   flex-direction: row;
   row-gap: 4px;
   flex-wrap: wrap;
-  /* color:  ${p => p.theme.colors.secondaryGray}; */
   font-weight: ${p => p.theme.fontWeights.normal};
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 18px;

@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { selectCars } from "redux/selectors";
-import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle, RentalConditionsList, RentalConditionsItem, Button } from "./CardCar.styled";
+import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle, RentalConditionsList, RentalConditionsItem, BlockButtons, BtnRentalCar, BtnBack, IconArrowUp } from "./CardCar.styled";
 import { useSelector } from "react-redux";
 
 
-const CardCar = ({ carId }) => {
+const CardCar = ({ carId, onClose }) => {
 
   const cars = useSelector(selectCars);
 
@@ -88,11 +88,23 @@ const CardCar = ({ carId }) => {
           </RentalConditionsList>
         </SecondaryInfoWrapper>
 
-        <Button
+        <BlockButtons>
+          <BtnRentalCar
           href = 'tel:+380730000000' 
         >
           Rental car
-        </Button>
+        </BtnRentalCar>
+        <BtnBack
+            type="button"
+            onClick={onClose}
+            
+        >
+          <IconArrowUp size={18}/>
+        </BtnBack>
+
+        </BlockButtons>
+
+        
 
       </BlockInfo>
     </Wrapper>
@@ -101,6 +113,7 @@ const CardCar = ({ carId }) => {
 
 CardCar.propTypes = {
   carId: PropTypes.number.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default CardCar;

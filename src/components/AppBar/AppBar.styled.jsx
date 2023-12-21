@@ -36,12 +36,22 @@ export const Container = styled.div`
 `;
 
 export const BtnMenuNavigation = styled.button`
-  width: 25px;
-  height: 25px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;  
   padding: 0;
   background-color: transparent;
-  border: none;
-  cursor: pointer;
+  border: ${p => p.theme.borders.normal} ${p => p.theme.colors.black};
+  border-radius: 50%;
+  outline: none;
+  box-shadow:  rgb(138, 138, 137, 1) 2px 3px 5px;   
+  cursor: pointer; 
+  
+  &:hover {
+    box-shadow:  rgb(138, 138, 137, 1) 2px 8px 5px;
+  }
 
   @media screen and (${p => p.theme.mq.tablet}) {
       display: none;      
@@ -49,12 +59,7 @@ export const BtnMenuNavigation = styled.button`
 `;
 
 export const IconMenu = styled(IoMenuSharp)`
-  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-  filter: drop-shadow(rgba(0, 0, 0, 0.8) 2px 3px 5px);
-
-  &:hover {      
-    filter: drop-shadow(rgba(0, 0, 0, 0.8) 2px 8px 5px);
-  }; 
+  fill: ${p => p.theme.colors.black}; 
 `;
 
 export const Link = styled(NavLink)`

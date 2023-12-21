@@ -32,7 +32,7 @@ export const AppBar = () => {
             (viewportWidth < 768)
               ? (
                 <BtnMenuNavigation type="button" onClick={openModal}>
-                  <IconMenu size="25px" />
+                  <IconMenu size="18px" />
                 </BtnMenuNavigation>)
               : (
                 <Navigation />

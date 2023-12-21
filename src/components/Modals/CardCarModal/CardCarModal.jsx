@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { createPortal } from 'react-dom';
 import { useEffect, useRef, useState } from "react";
 
-import { Backdrop, Content, ModalBackdrop, ModalContent, BtnClose, IconClose } from "./CardCarModal.styled";
+import { ModalBackdrop, ModalContent, BtnClose, IconClose } from "./CardCarModal.styled";
 import CardCar from "components/CardCar";
 
 const modalRoot = document.querySelector('#modal-card-car');
@@ -61,14 +61,11 @@ const CardCarModal = ({ onClose, carId }) => {
       {
         (viewportWidth < 768)
           ? (
-            <Backdrop ref={modal}>
-              <BtnClose type="button" onClick={handleClose}>
-                <IconClose size="24px" />
-              </BtnClose>
-              <Content>
-                <CardCar carId={ carId }/>
-              </Content>
-            </Backdrop>)                
+            <ModalBackdrop ref={modal}>
+              <ModalContent>             
+                <CardCar carId={carId} onClose={handleClose} />              
+              </ModalContent>
+            </ModalBackdrop>)                
           : (
             <ModalBackdrop ref={modal} onClick={handleBackdropClick}>
               <ModalContent >

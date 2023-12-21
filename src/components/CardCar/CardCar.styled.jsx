@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { IoArrowUpSharp } from "react-icons/io5";
 
 export const Wrapper = styled.div`
   width: 100%;  
@@ -64,6 +65,7 @@ export const DescriptionList = styled.ul`
   font-weight: ${p => p.theme.fontWeights.normal};
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: 18px;
+  margin-bottom: 4px ;
 `;
 
 export const DescriptionItem = styled.li`
@@ -95,9 +97,13 @@ export const SecondaryInfoTitle = styled.h2`
 
 export const RentalConditionsList = styled.ul`
   display: flex;
+  flex-direction: column;
   gap: 8px;
   flex-wrap: wrap;
-  
+
+  @media screen and (${p => p.theme.mq.tablet}) {
+    flex-direction: row;
+  }  
 `;
 
 export const RentalConditionsItem = styled.li`
@@ -112,10 +118,16 @@ export const RentalConditionsItem = styled.li`
   };
 `;
 
-export const Button = styled.a`
+export const BlockButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8px 12px 0;
+`;
+
+export const BtnRentalCar = styled.a`  
   width: 168px;  
-  padding: 12px;
-  margin-bottom: 12px;
+  padding: 12px;  
   text-align: center;
   border: ${p => p.theme.borders.none};
   border-radius: ${p => p.theme.radii.normal};
@@ -131,8 +143,34 @@ export const Button = styled.a`
   &:hover {
     background-color: ${p => p.theme.colors.lighteBlue};
     box-shadow: rgba(0, 0, 0, 0.5) 2px 8px 5px;
+  };  
+`;
+
+export const BtnBack = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  width: 24px;
+  height: 24px;   
+  padding: 0;
+  background-color: transparent;
+  border: ${p => p.theme.borders.normal} ${p => p.theme.colors.black};
+  border-radius: 50%;
+  outline: none;
+  box-shadow:  rgb(138, 138, 137, 1) 2px 3px 5px;   
+  cursor: pointer; 
+  
+  &:hover {
+    box-shadow:  rgb(138, 138, 137, 1) 2px 8px 5px;
   };
   
-`
+  @media screen and (${p => p.theme.mq.tablet}) {
+    display: none;
+  }
+`;
+
+export const IconArrowUp = styled(IoArrowUpSharp)`
+  fill: ${p => p.theme.colors.black}; 
+`;
 
 

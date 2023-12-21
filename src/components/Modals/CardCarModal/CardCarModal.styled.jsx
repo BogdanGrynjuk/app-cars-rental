@@ -30,6 +30,7 @@ export const ModalContent = styled.div`
   width: 100%;
   height: 100%;
   padding: 10px;
+  padding-bottom: 40px;
   background-color: ${p => p.theme.colors.white};   
 
    @media screen and (${p => p.theme.mq.tablet}) {

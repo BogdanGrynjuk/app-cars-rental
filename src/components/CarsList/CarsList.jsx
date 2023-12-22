@@ -1,15 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCars } from "redux/operations";
-import { selectCars } from "redux/selectors";
+import { selectAllCars, selectError, selectIsLoading } from "redux/selectors";
 
 import CarsItem from "components/CarsItem";
 import { Wrapper, List, Button } from "./CarsList.styled";
 import GeneralContainer from "components/GeneralContainer";
+import Loader from "components/Loader";
 
 const CarsList = () => {
   const [visibleCards, setVisibleCards] = useState(8);
-  const cars = useSelector(selectCars);
+  const cars = useSelector(selectAllCars);
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   const carsListRef = useRef(null);
   const dispatch = useDispatch();
   
@@ -36,23 +39,27 @@ const CarsList = () => {
   }, [dispatch])
 
   return (
-    <Wrapper >
-      <GeneralContainer>
-        <List ref={carsListRef}>
-          {cars.slice(0, visibleCards).map(car => (
-            <CarsItem key={car.id} {...car} />
-          ))}
-        </List>
-        {visibleCards < cars.length &&
-          <Button
-            type="button"
-            onClick={handleLoadMore}
-          >
-            Load more
-          </Button>
-        }
-      </GeneralContainer>
-    </Wrapper>
+    <>
+      {error && <p>{error}</p>}
+      {isLoading && !error && <Loader />}
+      <Wrapper >
+        <GeneralContainer>
+          <List ref={carsListRef}>
+            {cars.slice(0, visibleCards).map(car => (
+              <CarsItem key={car.id} {...car} />
+            ))}
+          </List>
+          {visibleCards < cars.length &&
+            <Button
+              type="button"
+              onClick={handleLoadMore}
+            >
+              Load more
+            </Button>
+          }
+        </GeneralContainer>
+      </Wrapper>
+    </>
   );
 }
 

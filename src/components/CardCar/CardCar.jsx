@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
-import { selectCars } from "redux/selectors";
+import { selectAllCars } from "redux/selectors";
 import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle, RentalConditionsList, RentalConditionsItem, BlockButtons, BtnRentalCar, BtnBack, IconArrowUp } from "./CardCar.styled";
 import { useSelector } from "react-redux";
 
 
 const CardCar = ({ carId, onClose }) => {
 
-  const cars = useSelector(selectCars);
+  const cars = useSelector(selectAllCars);
 
   const {
     address,
@@ -89,22 +89,11 @@ const CardCar = ({ carId, onClose }) => {
         </SecondaryInfoWrapper>
 
         <BlockButtons>
-          <BtnRentalCar
-          href = 'tel:+380730000000' 
-        >
-          Rental car
-        </BtnRentalCar>
-        <BtnBack
-            type="button"
-            onClick={onClose}
-            
-        >
-          <IconArrowUp size={18}/>
-        </BtnBack>
-
+          <BtnRentalCar href='tel:+380730000000'>Rental car</BtnRentalCar>
+          <BtnBack type="button" onClick={onClose}>
+            <IconArrowUp size={18} />
+          </BtnBack>
         </BlockButtons>
-
-        
 
       </BlockInfo>
     </Wrapper>
@@ -113,7 +102,7 @@ const CardCar = ({ carId, onClose }) => {
 
 CardCar.propTypes = {
   carId: PropTypes.number.isRequired,
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
 };
 
 export default CardCar;

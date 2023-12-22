@@ -72,7 +72,7 @@ const CardCarModal = ({ onClose, carId }) => {
                 <BtnClose type="button" onClick={handleClose}>
                   <IconClose size="24px" />
                 </BtnClose>
-                <CardCar carId={ carId } />                
+                <CardCar carId={carId} />                
               </ModalContent>
             </ModalBackdrop>
           )

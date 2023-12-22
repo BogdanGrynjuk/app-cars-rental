@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { Suspense, useEffect } from 'react';
 
 import AppBar from 'components/AppBar';
+import Loader from 'components/Loader';
 import { Main } from './Layout.styled';
 
 const Layout = () => {
@@ -17,7 +18,7 @@ const Layout = () => {
     <>
       <AppBar />
       <Main id="content">
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader/>}>
           <Outlet />
         </Suspense>
       </Main>

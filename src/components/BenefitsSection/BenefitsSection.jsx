@@ -1,5 +1,3 @@
-// import { IoMdCheckmarkCircleOutline as Marker } from "react-icons/io";
-
 import GeneralContainer from 'components/GeneralContainer';
 import banner from 'images/kia.png';
 import { Section, SectionTitle, SectionContent, ThumbImg, BenefitsList, BenefitsItem, Marker } from './BenefitsSection.styled';
@@ -12,8 +10,7 @@ const BenefitsSection = () => {
         <SectionContent>
           <ThumbImg>
             <img src={banner} alt="blue auto" />
-          </ThumbImg>
-      
+          </ThumbImg>      
       
           <BenefitsList>
             <BenefitsItem><Marker />24/7 support</BenefitsItem>
@@ -24,10 +21,7 @@ const BenefitsSection = () => {
           </BenefitsList>
         </SectionContent>
 
-      </GeneralContainer>
-      
-        
-      
+      </GeneralContainer>     
     </Section>
   );
 };

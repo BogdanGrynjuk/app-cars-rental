@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import Logo from 'components/Logo';
+
 import { Header, Container, BtnMenuNavigation, IconMenu, Link } from './AppBar.styled';
+
+import Logo from 'components/Logo';
 import Navigation from 'components/Navigation';
 import AppBarModal from 'components/Modals/AppBarModal';
 

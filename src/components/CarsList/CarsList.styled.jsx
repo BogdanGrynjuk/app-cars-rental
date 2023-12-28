@@ -16,6 +16,8 @@ export const List = styled.ul`
   row-gap: 30px;
   flex-wrap: wrap;
   overflow-y: auto;
+  margin: -10px;
+  padding: 10px;
   margin-bottom: 30px;
 
   @media screen and (${p => p.theme.mq.tablet}) {

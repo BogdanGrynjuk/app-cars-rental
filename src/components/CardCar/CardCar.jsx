@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
-import { selectAllCars } from "redux/selectors";
-import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle, RentalConditionsList, RentalConditionsItem, BlockButtons, BtnRentalCar, BtnBack, IconArrowUp } from "./CardCar.styled";
 import { useSelector } from "react-redux";
 
+import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle, RentalConditionsList, RentalConditionsItem, BlockButtons, BtnRentalCar, BtnBack, IconArrowUp } from "./CardCar.styled";
+
+import { selectAllCars } from "redux/selectors";
 
 const CardCar = ({ carId, onClose }) => {
 

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import defaultImageCar from 'images/Image_not_available.png'
 
 export const Container = styled.li`  
  display: flex;
@@ -29,6 +30,7 @@ export const Content = styled.div`
 `;
 
 export const ThumbImg = styled.div`
+  position: relative;
   margin-bottom: 14px;
   width: 100%;
   height: 268px;
@@ -36,10 +38,31 @@ export const ThumbImg = styled.div`
   border-radius: ${p => p.theme.radii.large};
 `;
 
+export const BtnToggleFavorite = styled.div`
+  position: absolute;
+  top: 14px;
+  right: 14px;  
+  cursor: pointer;
+
+  ${p => p.isFavorite
+    ? `color: ${p.theme.colors.blue};`
+    : `color: ${p.theme.colors.white};`
+  }
+
+  & > svg {
+    width: 18px;
+    height: 18px;
+  }
+`;
+
 export const Img = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
+  background-color: ${p => p.theme.colors.black};
+  background-image: url(${defaultImageCar});
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export const BlockInfo = styled.div`

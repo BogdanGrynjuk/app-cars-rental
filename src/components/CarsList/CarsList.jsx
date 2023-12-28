@@ -61,6 +61,6 @@ const CarsList = () => {
       </Wrapper>
     </>
   );
-}
+};
 
 export default CarsList;

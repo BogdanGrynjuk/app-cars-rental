@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { IoArrowUpSharp } from "react-icons/io5";
+import defaultImageCar from "images/Image_not_available.png";
 
 export const Wrapper = styled.div`
   width: 100%;  
@@ -30,7 +31,11 @@ export const ThumbImg = styled.div`
 export const Img = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
+   background-color: ${p => p.theme.colors.black};
+  background-image: url(${defaultImageCar});
+  background-repeat: no-repeat;
+  background-position: center; 
 `;
 
 export const BlockInfo = styled.div`

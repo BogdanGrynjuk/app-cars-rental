@@ -4,6 +4,7 @@ import { IoMenuSharp } from "react-icons/io5";
 
 export const Header = styled.header`
   position: fixed;
+  z-index: 100;
   top: 0;
   right: 0;
   width: 100%;

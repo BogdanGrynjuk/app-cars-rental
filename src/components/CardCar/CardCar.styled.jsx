@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { IoArrowUpSharp } from "react-icons/io5";
-import defaultImageCar from "images/Image_not_available.png";
+import defaultImageCar from "images/image_not_available.svg";
 
 export const Wrapper = styled.div`
   width: 100%;  

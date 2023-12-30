@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
-import defaultImageCar from 'images/Image_not_available.png'
+import defaultImageCar from 'images/image_not_available.svg';
+
+
 
 export const Container = styled.li`  
  display: flex;
@@ -36,12 +38,17 @@ export const ThumbImg = styled.div`
   height: 268px;
   overflow: hidden;
   border-radius: ${p => p.theme.radii.large};
+  background-color: ${p => p.theme.colors.black};
+  background-image: url(${defaultImageCar});
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export const BtnToggleFavorite = styled.div`
   position: absolute;
   top: 14px;
-  right: 14px;  
+  right: 14px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;  
   cursor: pointer;
 
   ${p => p.isFavorite
@@ -53,16 +60,17 @@ export const BtnToggleFavorite = styled.div`
     width: 18px;
     height: 18px;
   }
+
+  &:hover > svg {
+    color:  ${p => p.theme.colors.blue};
+  }
 `;
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background-color: ${p => p.theme.colors.black};
-  background-image: url(${defaultImageCar});
-  background-repeat: no-repeat;
-  background-position: center;
+  
 `;
 
 export const BlockInfo = styled.div`
@@ -119,6 +127,7 @@ export const Button = styled.button`
   font-weight: ${p => p.theme.fontWeights.bold};
   line-height: 24px;
   box-shadow:  rgba(0, 0, 0, 0.5) 2px 3px 5px; 
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   cursor: pointer;
   
   &:hover {

@@ -1,12 +1,17 @@
 import PropTypes from "prop-types";
-import { Nav, Link } from './Navigation.styled';
+import { Nav, Link, Counter } from './Navigation.styled';
+import { useSelector } from "react-redux";
+import { selectAllCars, selectFavorites } from "redux/selectors";
 
-const Navigation = ({onClose}) => {
+const Navigation = ({ onClose }) => {
+  const allCars = useSelector(selectAllCars);
+  const favorites = useSelector(selectFavorites);
+
   return (
     <Nav>
       <Link to="/" onClick={onClose}>Home</Link>
-      <Link to="/catalog" onClick={onClose}>Catalog</Link>
-      <Link to="/favorites" onClick={onClose}>Favorites</Link>
+      <Link to="/catalog" onClick={onClose}>Catalog<Counter>{ allCars.length }</Counter></Link>
+      <Link to="/favorites" onClick={onClose}>Favorites<Counter>{ favorites.length }</Counter></Link>
     </Nav>
   );
 };

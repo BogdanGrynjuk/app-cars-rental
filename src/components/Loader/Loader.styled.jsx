@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   position: absolute;
-  z-index: 1000;
+  z-index: 10000;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

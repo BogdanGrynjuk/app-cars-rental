@@ -5,6 +5,7 @@ export const Nav = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  text-align: center;
 
   @media screen and (${ p => p.theme.mq.tablet}) {
     flex-direction: row;      
@@ -12,6 +13,8 @@ export const Nav = styled.nav`
 `;
 
 export const Link = styled(NavLink)`
+  display: flex;
+  column-gap: 4px;  
   color: ${p => p.theme.colors.black};
   font-family: ${p => p.theme.fontFamily.manrope};
   font-size: ${p => p.theme.fontSizes.xl};
@@ -28,4 +31,22 @@ export const Link = styled(NavLink)`
   &.active{
     color: ${p => p.theme.colors.blue};
   };
+
+  
+`;
+
+export const Counter = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-25%);
+  height: 18px;
+  width: 18px;
+  min-height: 18px;
+  min-width: 18px;
+  font-size: ${p => p.theme.fontSizes.xs};
+  text-align: center;
+  color: ${p => p.theme.colors.white};
+  border-radius: 50%;
+  background-color: ${p => p.theme.colors.blue};  
 `;

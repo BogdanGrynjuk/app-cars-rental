@@ -44,6 +44,7 @@ export const Button = styled.button`
   font-size: ${p => p.theme.fontSizes.s};
   font-weight: ${p => p.theme.fontWeights.medium};
   line-height: 24px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s; 
   cursor: pointer;
   
    &:hover {

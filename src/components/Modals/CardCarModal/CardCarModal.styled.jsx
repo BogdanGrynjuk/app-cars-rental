@@ -10,6 +10,7 @@ export const ModalBackdrop = styled.div`
   height: 100vh;
   background-color: rgba(18, 20, 23, 0.5);
   backdrop-filter: blur(3px);
+  z-index: 1000;
 
   &.isOpen {
     animation: ${openingModal} 1500ms cubic-bezier(0.4, 0, 0.2, 1);

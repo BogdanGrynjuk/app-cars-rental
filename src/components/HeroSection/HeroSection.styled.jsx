@@ -79,7 +79,8 @@ export const Btn = styled.button`
   font-size: ${p => p.theme.fontSizes.s};
   font-weight: ${p => p.theme.fontWeights.bold};
   line-height: 24px;
-  box-shadow:  rgba(0, 0, 0, 0.5) 2px 3px 5px;;
+  box-shadow:  rgba(0, 0, 0, 0.5) 2px 3px 5px;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
   cursor: pointer;
   
   &:hover {

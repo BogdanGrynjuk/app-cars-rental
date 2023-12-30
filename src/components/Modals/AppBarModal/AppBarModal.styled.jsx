@@ -14,7 +14,8 @@ export const Backdrop = styled.div`
   border-bottom: ${p => p.theme.borders.normal} ${p => p.theme.colors.black};
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px 5px, 
     rgba(0, 0, 0, 0.1) 0px 4px 5px 0px, 
-    rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;  
+    rgba(0, 0, 0, 0.12) 0px 1px 5px 0px;
+  z-index: 1000;
 
   &.isOpen {
     animation: ${openingModal} 1500ms cubic-bezier(0.4, 0, 0.2, 1);

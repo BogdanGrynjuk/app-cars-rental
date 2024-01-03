@@ -33,7 +33,7 @@ const CardCar = ({ carId, onClose }) => {
   return (
     <Wrapper>
       <ThumbImg>
-        <Img src={img} alt={`${make} ${model}`} />
+        <Img src={img} alt={`${make} ${model}`} loading="lazy"/>
       </ThumbImg>
 
       <BlockInfo>

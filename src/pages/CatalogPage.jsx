@@ -1,10 +1,11 @@
 import CarsList from "components/CarsList";
+import FilterSection from "components/FilterSection";
 
 const CatalogPage = () => { 
   
   return (
     <>
-      <div>There should be a form here</div>
+      <FilterSection/>
       <CarsList />
     </>
   );

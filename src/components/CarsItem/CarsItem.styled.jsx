@@ -38,7 +38,7 @@ export const ThumbImg = styled.div`
   height: 268px;
   overflow: hidden;
   border-radius: ${p => p.theme.radii.large};
-  background-color: ${p => p.theme.colors.black};
+  background-color: ${p => p.theme.colors.grey};
   background-image: url(${defaultImageCar});
   background-repeat: no-repeat;
   background-position: center;

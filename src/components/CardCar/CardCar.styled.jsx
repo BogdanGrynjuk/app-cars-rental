@@ -25,17 +25,18 @@ export const ThumbImg = styled.div`
   width: 100%;
   height: 248px;
   overflow: hidden;
-  border-radius: ${p => p.theme.radii.large};
+  border-radius: ${p => p.theme.radii.large}; 
+  background-color: ${p => p.theme.colors.grey};
+  background-image: url(${defaultImageCar});
+  background-repeat: no-repeat;
+  background-position: center; 
 `;
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-   background-color: ${p => p.theme.colors.black};
-  background-image: url(${defaultImageCar});
-  background-repeat: no-repeat;
-  background-position: center; 
+  
 `;
 
 export const BlockInfo = styled.div`
@@ -159,7 +160,7 @@ export const BtnBack = styled.button`
   height: 24px;   
   padding: 0;
   background-color: transparent;
-  border: ${p => p.theme.borders.normal} ${p => p.theme.colors.black};
+  border: none;
   border-radius: 50%;
   outline: none;
   box-shadow:  rgb(138, 138, 137, 1) 2px 3px 5px;   

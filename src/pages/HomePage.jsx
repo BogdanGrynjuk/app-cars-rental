@@ -1,7 +1,7 @@
 import BenefitsSection from "components/BenefitsSection";
 import HeroSection from "components/HeroSection";
 
-const HomePage = () => {
+const HomePage = () => {  
   return (
     <>
       <HeroSection />

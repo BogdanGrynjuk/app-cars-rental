@@ -44,7 +44,7 @@ export const BtnMenuNavigation = styled.button`
   height: 24px;  
   padding: 0;
   background-color: transparent;
-  border: ${p => p.theme.borders.normal} ${p => p.theme.colors.black};
+  border: none;
   border-radius: 50%;
   outline: none;
   box-shadow:  rgb(138, 138, 137, 1) 2px 3px 5px;   

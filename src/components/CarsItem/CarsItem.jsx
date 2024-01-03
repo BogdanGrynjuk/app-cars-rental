@@ -42,7 +42,7 @@ const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalComp
           <BtnToggleFavorite isFavorite={isFavorite} onClick={toggleFavorite}>
            {isFavorite ? <IoHeartSharp /> : <IoHeartOutline />}
           </BtnToggleFavorite>             
-          <Img src={img} alt={`${make} ${model}`} />
+          <Img src={img} alt={`${make} ${model}`} loading="lazy"/>
         </ThumbImg>
 
         <BlockInfo>
@@ -59,7 +59,7 @@ const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalComp
             <DescriptionItem>{rentalCompany}</DescriptionItem>
             <DescriptionItem>{type}</DescriptionItem>
             <DescriptionItem>{model}</DescriptionItem>
-            <DescriptionItem>{mileage}</DescriptionItem>
+            <DescriptionItem>{id}</DescriptionItem>
             <DescriptionItem>{accessories[0]}</DescriptionItem>
           </DescriptionList>
         </BlockInfo>

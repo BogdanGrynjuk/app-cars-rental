@@ -4,4 +4,4 @@ export const selectError = state => state.cars.error;
 
 export const selectFavorites = state => state.favorites.favorites;
 
-export const selectFilters = state => state.filters.filters;
+export const selectFilters = state => state.filter.filter;

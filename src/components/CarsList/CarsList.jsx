@@ -22,7 +22,7 @@ const CarsList = () => {
 
     if (filter.brand && (make !== filter.brand)) return false;
     
-    if (filter.price && (parseInt(rentalPrice.slice(1), 10) > Number(filter.price))) return false;
+    if (filter.price && (Number(rentalPrice.slice(1)) >= Number(filter.price))) return false;
     
     if (filter.mileage.from && (mileage < filter.mileage.from)) return false;
     

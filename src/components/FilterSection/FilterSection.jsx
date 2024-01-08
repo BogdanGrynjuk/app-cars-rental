@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetFilter, updateFilter } from "redux/filtersSlice";
 import { selectAllCars, selectMaxMileage, selectMaxPrice, selectMinPrice } from "redux/selectors";
 
-
 import * as Yup from "yup";
+import CustomSelect from "./Select";
 
 const FilterSection = () => {
   const dispatch = useDispatch();
@@ -15,15 +15,15 @@ const FilterSection = () => {
   const minPrice = useSelector(selectMinPrice);
 
   const uniqueBrends = new Set(cars.map(car => car.make));
-  const brandOptions = [...uniqueBrends].map(brand => ({ key: brand, value: brand }));
+  const brandOptions = [...uniqueBrends].sort((a, b) => a.localeCompare(b)).map(brand => ({ label: brand, value: brand }));
 
   const priceOptions = [];
   const step = 10;
-  const firstPriceOption = Math.ceil(minPrice / step) * step;
-  const lastPriceOption = Math.ceil(maxPrice / step) * step;
+  const firstPriceOption = Math.ceil(minPrice / 10) * 10;
+  const lastPriceOption = Math.ceil(maxPrice / 10) * 10;
 
   for (let i = firstPriceOption; i <= lastPriceOption; i += step) {
-    priceOptions.push({ key: i, value: i })
+    priceOptions.push({ label: i, value: i })
   };
 
   const initialValues = {
@@ -36,11 +36,14 @@ const FilterSection = () => {
   };
 
   const handleSubmit = (values) => {
-    console.log(values)
+    console.log(values);
     dispatch(updateFilter(values));
-}    
+  };    
 
-  const handleResetFilter = () => dispatch(resetFilter());  
+  const handleResetFilter = (formik) => {
+    dispatch(resetFilter());
+    formik.resetForm(); 
+  };  
 
   const validationSchema = Yup.object().shape({
     brand: Yup.string(),
@@ -61,36 +64,21 @@ const FilterSection = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
       validateOnChange={false}
-      validateOnBlur={false}
+      validateOnBlur={false}      
     >
       {formik => (
         <Form>
           <div>
             <label htmlFor="brand">Car brand</label>
-            <Field list="brand-list" id="brand" name="brand" placeholder="Enter text" />
-            <datalist id="brand-list">
-              {brandOptions.map(option => (
-                <option key={option.key} value={option.value}>
-                  {option.key}
-                </option>
-              ))}
-            </datalist>
+            <Field name="brand" component={CustomSelect} options={brandOptions} placeholder="Enter the text" />
             <ErrorMessage name="brand" />
-          </div>
+          </div>      
 
           <div>
-            <label htmlFor="price">Price/ 1 hour</label>
-            <Field list="price-list" id="price" name="price" placeholder="to" />
-            <datalist id="price-list">
-              {priceOptions.map(option => (
-                <option key={option.key} value={option.value}>
-                  {option.key}
-                </option>
-              ))}
-            </datalist>
-            <ErrorMessage name="brand" />
-          </div>
-        
+            <label htmlFor="price">Price/ 1 hour</label>                      
+            <Field name="price" component={CustomSelect} options={priceOptions} placeholder="To $" />
+            <ErrorMessage name="price" />
+          </div>        
 
           <div role="group" aria-labelledby="mileage-head">
             <p id="mileage-head">Сar mileage / km</p>
@@ -108,11 +96,10 @@ const FilterSection = () => {
           </div>
         
           <button type="submit">Search</button>
-          <button type="reset" onClick={handleResetFilter}>Clear</button>
+          <button type="reset" onClick={() => handleResetFilter(formik)}>Clear</button>
         </Form>
       )}
     </Formik>
-  );
-};
+  );};
 
 export default FilterSection;

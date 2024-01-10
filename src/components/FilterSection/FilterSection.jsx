@@ -1,10 +1,13 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { resetFilter, updateFilter } from "redux/filtersSlice";
 import { selectAllCars, selectMaxMileage, selectMaxPrice, selectMinPrice } from "redux/selectors";
 
 import * as Yup from "yup";
-import CustomSelect from "./Select";
+
+import CustomSelect from "./CustomSelect";
+import { FormikControl, FormikForm, Label, Wrapper } from "./FilterSection.styled";
+import GeneralContainer from "components/GeneralContainer";
 
 const FilterSection = () => {
   const dispatch = useDispatch();
@@ -59,47 +62,53 @@ const FilterSection = () => {
   });  
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={handleSubmit}
-      validateOnChange={false}
-      validateOnBlur={false}      
-    >
-      {formik => (
-        <Form>
-          <div>
-            <label htmlFor="brand">Car brand</label>
-            <Field name="brand" component={CustomSelect} options={brandOptions} placeholder="Enter the text" />
-            <ErrorMessage name="brand" />
-          </div>      
+    <Wrapper>
+      <GeneralContainer>
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+          validateOnChange={false}
+          validateOnBlur={false}
+        >
+          {formik => (
+            <FormikForm>
+              <FormikControl>
+                <Label htmlFor="brand">Car brand</Label>
+                <Field name="brand" component={CustomSelect} options={brandOptions} placeholder="Enter the text" />
+                <ErrorMessage name="brand" />
+              </FormikControl>
 
-          <div>
-            <label htmlFor="price">Price/ 1 hour</label>                      
-            <Field name="price" component={CustomSelect} options={priceOptions} placeholder="To $" />
-            <ErrorMessage name="price" />
-          </div>        
+              <FormikControl>
+                <Label htmlFor="price">Price/ 1 hour</Label>
+                <Field name="price" component={CustomSelect} options={priceOptions} placeholder="To $" />
+                <ErrorMessage name="price" />
+              </FormikControl>
 
-          <div role="group" aria-labelledby="mileage-head">
-            <p id="mileage-head">Сar mileage / km</p>
+              <div role="group" aria-labelledby="mileage-head">
+                <p id="mileage-head">Сar mileage / km</p>
 
-            <div>
-              <Field type="number" name="mileage.from" placeholder="From" />
-              <ErrorMessage name="mileage.from" />
-            </div>
+                <FormikControl>
+                  <Field type="number" name="mileage.from" placeholder="From" />
+                  <ErrorMessage name="mileage.from" />
+                </FormikControl>
           
-            <div>
-              <Field type="number" name="mileage.to" placeholder="To" />
-              <ErrorMessage name="mileage.to" />
-            </div>
+                <FormikControl>
+                  <Field type="number" name="mileage.to" placeholder="To" />
+                  <ErrorMessage name="mileage.to" />
+                </FormikControl>
 
-          </div>
+              </div>
         
-          <button type="submit">Search</button>
-          <button type="reset" onClick={() => handleResetFilter(formik)}>Clear</button>
-        </Form>
-      )}
-    </Formik>
-  );};
+              <button type="submit">Search</button>
+              <button type="reset" onClick={() => handleResetFilter(formik)}>Clear</button>
+            </FormikForm>
+          )}
+        </Formik>
+      </GeneralContainer>
+      
+    </Wrapper>
+  );
+};
 
 export default FilterSection;

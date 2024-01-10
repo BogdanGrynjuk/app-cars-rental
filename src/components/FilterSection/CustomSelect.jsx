@@ -2,54 +2,27 @@ import Select from 'react-select';
 import PropTypes from 'prop-types';
 
 const customStyles = {
-  control: (provided, state) => ({
+  control: provided => ({
     ...provided,
-    height: '48px',
-    padding: '0',
-    paddingLeft: '14px',
+    width: '100%',      
+    padding: '12px 8px',
     backgroundColor: 'rgba(247, 247, 251, 1)',
-    borderRadius: '14px',
+    borderRadius: '12px',
     border: 'none',
-    fontSize: '18px',
-    fontWeight: '500',
-    lineHeight: '1.1',
+    fontSize: '16px',
+    fontWeight: '600',
+    lineHeight: '20px',
     svg: { color: "rgba(18, 20, 23, 1)" },
+    boxShadow:" rgba(0, 0, 0, 0.5) 2px 3px 5px",
     '&:hover': {
-      borderColor: 'rgba(52, 112, 255, 1)',
+      boxShadow:" rgba(0, 0, 0, 0.5) 2px 8px 5px",
     },
   }),
-  option: (provided, state) => ({
-    ...provided,    
-    paddingBottom: '8px',
-    backgroundColor: state.isSelected ? 'rgba(11, 68, 205, 1)' : 'rgba(18, 20, 23, 0.2)',
-    color: state.isSelected ? 'rgba(52, 112, 255, 1)' : 'rgba(18, 20, 23, 0.5)',
-    fontSize: '16px',
-    fontWeight: '500',
-    lineHeight: '1.25',
-    cursor: 'pointer',
-  }),
-  dropdownIndicator: (provided, state) => ({
+  menu: provided =>  ({
     ...provided,
-    color: '#121417',
-    cursor: 'pointer',
-    transform: state.isFocused ? 'rotate(180deg)' : null,
-  }),
-  indicatorSeparator: provided => ({
-    ...provided,
-    backgroundColor: 'rgba(247, 247, 251, 1)',
-  }),
-  placeholder: (provided, state) => ({
-    ...provided,
-    backgroundColor: 'rgba(247, 247, 251, 1)',
-    color: '#121417',
-    fontSize: '18px',
-    fontWeight: '500',
-    lineHeight: '1.11',    
-  }),
-  menu: provided => ({
-    ...provided,
-    borderRadius: '14px',
-    padding: '14px 8px 14px 18px',
+    padding: '14px 8px',
+    borderRadius: '12px',
+    boxShadow:" rgba(0, 0, 0, 0.5) 2px 8px 5px",
   }),
   menuList: provided => ({
     ...provided,
@@ -62,6 +35,39 @@ const customStyles = {
       borderRadius: '12px',
     },
   }),
+  option: (provided, state) => ({
+    ...provided,        
+    backgroundColor: 'transparent',
+    color: state.isSelected ? 'rgba(52, 112, 255, 1)' : 'rgba(18, 20, 23, 0.5)',
+    fontWeight: state.isSelected && '600',
+    cursor: 'pointer',
+    "&:hover": {
+        color: state.isSelected ? 'rgba(52, 112, 255, 1)' : 'rgba(18, 20, 23, 1)',
+        backgroundColor: "transparent",
+      },
+  }),
+  dropdownIndicator: (provided, state) => {    
+    return ({
+      ...provided,
+      color: 'rgba(18, 20, 23, 1)',
+      cursor: 'pointer',
+      transform: state.isFocused && 'rotate(180deg)',
+    })
+  },
+  indicatorSeparator: provided => ({
+    ...provided,
+   display: 'none',
+  }),
+  placeholder: (provided, state) => ({
+    ...provided,
+    display: state.isFocused && "none",
+    backgroundColor: 'rgba(247, 247, 251, 1)',
+    color: 'rgba(18, 20, 23, 1)',
+    fontSize: '14px',
+    fontWeight: '500',
+    lineHeight: '20px',    
+  }),
+  
 };
 
 const CustomSelect = ({ field, form, options, placeholder }) => {

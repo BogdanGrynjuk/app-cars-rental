@@ -1,12 +1,12 @@
 import { Formik, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { resetFilter, updateFilter } from "redux/filtersSlice";
-import { selectAllCars, selectMaxMileage, selectMaxPrice, selectMinPrice } from "redux/selectors";
+import { selectAllCars, selectMaxMileage, selectMinMileage, selectMaxPrice, selectMinPrice } from "redux/selectors";
 
 import * as Yup from "yup";
 
 import CustomSelect from "./CustomSelect";
-import { FormikControl, FormikForm, Label, Wrapper } from "./FilterSection.styled";
+import { FormikControl, FormikForm, Label, GroupLabel, Wrapper, GroupInputs, Input, ErrorMsg, BtnControl, Button } from "./FilterSection.styled";
 import GeneralContainer from "components/GeneralContainer";
 
 const FilterSection = () => {
@@ -14,6 +14,7 @@ const FilterSection = () => {
 
   const cars = useSelector(selectAllCars);
   const maxMileage = useSelector(selectMaxMileage);
+  const minMileage = useSelector(selectMinMileage);
   const maxPrice = useSelector(selectMaxPrice);
   const minPrice = useSelector(selectMinPrice);
 
@@ -53,11 +54,30 @@ const FilterSection = () => {
     price: Yup.number(),
     mileage: Yup.object().shape({
       from: Yup.number()
+        .positive('Mileage must be a positive number')
         .integer('Vehicle mileage must be an integer')
-        .max(maxMileage, `The highest mileage in our catalog ${maxMileage}`),
+        .max(maxMileage, `The highest mileage in our catalog ${maxMileage}`)
+        .test({
+          name: 'checkMileageRange',
+          exclusive: false,
+          message: 'The starting mileage should be less than or equal to the ending mileage',
+          test: function (from) {
+            const to = this.parent.mileage?.to;
+            return from === undefined || to === undefined || from <= to;
+          },
+        }),
       to: Yup.number()
+        .positive('Mileage must be a positive number')
         .integer('Vehicle mileage must be an integer')
-        .max(maxMileage, `The highest mileage in our catalog ${maxMileage}`),
+        .min(minMileage, `Lowest mileage in our catalog ${minMileage}`)
+        .when('from', (from, schema) => {
+          return schema.test({
+            name: 'checkMileageRange',
+            exclusive: false,
+            message: 'The starting mileage should be less than or equal to the ending mileage',
+            test: (to) => from === undefined || to === undefined || to >= from,
+          });
+        }),
     }),
   });  
 
@@ -85,23 +105,29 @@ const FilterSection = () => {
                 <ErrorMessage name="price" />
               </FormikControl>
 
-              <div role="group" aria-labelledby="mileage-head">
-                <p id="mileage-head">Сar mileage / km</p>
+              <FormikControl role="group" aria-labelledby="mileage-head">
+                <GroupLabel id="mileage-head">Сar mileage / km</GroupLabel>
 
-                <FormikControl>
-                  <Field type="number" name="mileage.from" placeholder="From" />
-                  <ErrorMessage name="mileage.from" />
-                </FormikControl>
+                <GroupInputs>
+                  <FormikControl>
+                    <Input type="number" name="mileage.from" placeholder="From" />
+                    
+                  </FormikControl>
           
-                <FormikControl>
-                  <Field type="number" name="mileage.to" placeholder="To" />
-                  <ErrorMessage name="mileage.to" />
-                </FormikControl>
+                  <FormikControl>
+                    <Input type="number" name="mileage.to" placeholder="To" />
+                    
+                  </FormikControl>
+                </GroupInputs>
+                <ErrorMsg name="mileage.from" component={'div'} />
+                <ErrorMsg name="mileage.to" component={'div'} />
 
-              </div>
+              </FormikControl>
         
-              <button type="submit">Search</button>
-              <button type="reset" onClick={() => handleResetFilter(formik)}>Clear</button>
+              <BtnControl>
+                <Button type="submit">Search</Button>
+                <Button type="reset" onClick={() => handleResetFilter(formik)}>Clear</Button>
+              </BtnControl>
             </FormikForm>
           )}
         </Formik>

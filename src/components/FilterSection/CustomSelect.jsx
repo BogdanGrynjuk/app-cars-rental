@@ -3,21 +3,27 @@ import PropTypes from 'prop-types';
 
 const customStyles = {
   control: provided => ({
-    ...provided,
-    width: '100%',      
-    padding: '12px 8px',
+    ...provided,    
+    width: '100%',
+    height: '48px',
+    padding: '0px 8px',
     backgroundColor: 'rgba(247, 247, 251, 1)',
     borderRadius: '12px',
     border: 'none',
     fontSize: '16px',
     fontWeight: '600',
-    lineHeight: '20px',
-    svg: { color: "rgba(18, 20, 23, 1)" },
+    lineHeight: '20px',        
+    svg: {      
+      color: "rgba(18, 20, 23, 1)"
+    },
     boxShadow:" rgba(0, 0, 0, 0.5) 2px 3px 5px",
     '&:hover': {
       boxShadow:" rgba(0, 0, 0, 0.5) 2px 8px 5px",
     },
   }),
+
+  valueContainer: provided => ({ ...provided, padding: 0, }),
+  
   menu: provided =>  ({
     ...provided,
     padding: '14px 8px',
@@ -52,18 +58,19 @@ const customStyles = {
       color: 'rgba(18, 20, 23, 1)',
       cursor: 'pointer',
       transform: state.isFocused && 'rotate(180deg)',
+      padding:  0,
     })
   },
   indicatorSeparator: provided => ({
     ...provided,
-   display: 'none',
+    display: 'none',
   }),
   placeholder: (provided, state) => ({
     ...provided,
-    display: state.isFocused && "none",
+    // display: state.isFocused && "none",
     backgroundColor: 'rgba(247, 247, 251, 1)',
     color: 'rgba(18, 20, 23, 1)',
-    fontSize: '14px',
+    fontSize: '16px',
     fontWeight: '500',
     lineHeight: '20px',    
   }),

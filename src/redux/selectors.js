@@ -8,6 +8,10 @@ export const selectMaxMileage = createSelector([selectAllCars], cars =>
   Math.max(...cars.map(car => car.mileage))
 );
 
+export const selectMinMileage = createSelector([selectAllCars], cars =>
+  Math.min(...cars.map(car => car.mileage))
+);
+
 export const selectMaxPrice = createSelector([selectAllCars], cars =>
   Math.max(...cars.map(car => car.rentalPrice.slice(1)))
 );

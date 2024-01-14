@@ -1,6 +1,20 @@
-const FavoritesPage= () => {
+import { useSelector } from "react-redux";
+import { selectFavoriteCars } from "redux/selectors";
+
+import CarsList from "components/CarsList";
+
+
+const FavoritesPage = () => {
+  const favoriteCars = useSelector(selectFavoriteCars);
+  
+  
+ 
   return (
-    <div><p>This is FavoritePage</p></div>
+     <>
+      <CarsList
+        cars={favoriteCars}        
+      />
+    </>
   );
 };
 

@@ -26,7 +26,7 @@ const persistedFavoriteReducer = persistReducer(persistConfig, favoriteReducer);
 export const store = configureStore({
   reducer: {
     cars: carsReducer,
-    filter: filterReducer,
+    filters: filterReducer,
     favorites: persistedFavoriteReducer,
   },
   middleware: getDefaultMiddleware =>

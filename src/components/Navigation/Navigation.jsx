@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { Nav, Link, Counter } from './Navigation.styled';
 import { useSelector } from "react-redux";
-import { selectAllCars, selectFavorites } from "redux/selectors";
+import { selectAllCars, selectFavoriteCars } from "redux/selectors";
 
 const Navigation = ({ onClose }) => {
   const allCars = useSelector(selectAllCars);
-  const favorites = useSelector(selectFavorites);
+  const favorites = useSelector(selectFavoriteCars);
 
   return (
     <Nav>

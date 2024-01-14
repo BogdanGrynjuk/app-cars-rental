@@ -18,17 +18,18 @@ import {
 } from "./CarsItem.styled";
 import CardCarModal from "components/Modals/CardCarModal";
 
-import { selectFavorites } from "redux/selectors";
+import { selectFavoriteCarsId } from "redux/selectors";
 import { addFavorite, removeFavorite } from "redux/favoriteSlice";
 
-
-const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalCompany, type, mileage, accessories }) => {  
+const CarsItem = ({ car }) => {
+  const { id, img, make, model, year, rentalPrice, address, rentalCompany, type, accessories } = car;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-
-  const favorites = useSelector(selectFavorites);
+  
+  const favorites = useSelector(selectFavoriteCarsId);
   const isFavorite = favorites.includes(id);
+
   const dispatch = useDispatch();
   
   const toggleFavorite = () => {
@@ -77,17 +78,18 @@ const CarsItem = ({ id, img, make, model, year, rentalPrice, address, rentalComp
 };
 
 CarsItem.propTypes = {
-  id: PropTypes.number.isRequired,
-  img: PropTypes.string.isRequired,
-  make: PropTypes.string.isRequired,
-  model: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-  rentalPrice: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  rentalCompany: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  mileage: PropTypes.number.isRequired,
-  accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
-}
+  car: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    img: PropTypes.string.isRequired,
+    make: PropTypes.string.isRequired,
+    model: PropTypes.string.isRequired,
+    year: PropTypes.number.isRequired,
+    rentalPrice: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    rentalCompany: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+};
 
 export default CarsItem;

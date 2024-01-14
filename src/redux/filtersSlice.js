@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  filter: {
+  filterAllCars: {
     brand: '',
     price: '',
     mileage: {
@@ -16,10 +16,13 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     updateFilter(state, { payload }) {
-      state.filter = { ...state.filter, ...payload };
+      state.filterAllCars = { ...state.filterAllCars, ...payload };
     },
     resetFilter(state, _) {
-      state.filter = { ...state.filter, ...initialState.filter };
+      state.filterAllCars = {
+        ...state.filterAllCars,
+        ...initialState.filterAllCars,
+      };
     },
   },
 });

@@ -15,7 +15,7 @@ import {
   DescriptionItem,
   Button,
   BtnToggleFavorite
-} from "./CarsItem.styled";
+} from "./CarItem.styled";
 import CardCarModal from "components/Modals/CardCarModal";
 
 import { selectFavoriteCarsId } from "redux/selectors";
@@ -41,9 +41,9 @@ const CarsItem = ({ car }) => {
       <Content>
         <ThumbImg>
           <BtnToggleFavorite isFavorite={isFavorite} onClick={toggleFavorite}>
-           {isFavorite ? <IoHeartSharp /> : <IoHeartOutline />}
-          </BtnToggleFavorite>             
-          <Img src={img} alt={`${make} ${model}`} loading="lazy"/>
+            {isFavorite ? <IoHeartSharp /> : <IoHeartOutline />}
+          </BtnToggleFavorite>
+          <Img src={img} alt={`${make} ${model}`} loading="lazy" />
         </ThumbImg>
 
         <BlockInfo>
@@ -53,7 +53,7 @@ const CarsItem = ({ car }) => {
             </BasicInfoText>
             <BasicInfoText>{rentalPrice}</BasicInfoText>
           </BasicInfoWrapper>
-      
+             
           <DescriptionList>
             <DescriptionItem>{address.split(',')[1]}</DescriptionItem>
             <DescriptionItem>{address.split(',')[2]}</DescriptionItem>
@@ -63,6 +63,7 @@ const CarsItem = ({ car }) => {
             <DescriptionItem>{id}</DescriptionItem>
             <DescriptionItem>{accessories[0]}</DescriptionItem>
           </DescriptionList>
+         
         </BlockInfo>
       </Content>
       <Button

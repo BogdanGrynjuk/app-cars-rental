@@ -9,7 +9,7 @@ export const Section = styled.section`
 
   color: ${p => p.theme.colors.black};
   font-family: ${p => p.theme.fontFamily.manrope};  
-  text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px;
+  /* text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px; */
 `;
 
 export const SectionTitle = styled.h2`

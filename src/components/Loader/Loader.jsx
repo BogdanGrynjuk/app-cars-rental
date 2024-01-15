@@ -1,7 +1,7 @@
 import { Oval } from 'react-loader-spinner';
 import { Text, Content, Wrapper } from './Loader.styled';
 
-export const Loader = () => {
+const Loader = () => {
   return (
     <Wrapper>
       <Content>

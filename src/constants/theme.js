@@ -1,4 +1,8 @@
-const breakpoints = ['320', '768', '1280'];
+const breakpoints = {
+  mobile: '320px',
+  tablet: '768px',
+  desktop: '1280px',
+};
 
 export const theme = Object.freeze({
   colors: {
@@ -38,9 +42,9 @@ export const theme = Object.freeze({
   },
 
   mq: {
-    mobile: `min-width: ${breakpoints[0]}px`,
-    tablet: `min-width: ${breakpoints[1]}px`,
-    desktop: `min-width: ${breakpoints[2]}px`,
+    mobile: `min-width: ${breakpoints.mobile}`,
+    tablet: `min-width: ${breakpoints.tablet}`,
+    desktop: `min-width: ${breakpoints.desktop}`,
   },
 
   radii: {

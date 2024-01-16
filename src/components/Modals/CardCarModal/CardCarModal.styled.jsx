@@ -36,7 +36,7 @@ export const ModalContent = styled.div`
 
    @media screen and (${p => p.theme.mq.tablet}) {
     padding: 40px;  
-    width: 541px;
+    width: 552px;
     max-height: 90vh;
     border-radius: ${p => p.theme.radii.large};    
   }   

@@ -21,7 +21,7 @@ import CardCarModal from "components/Modals/CardCarModal";
 import { selectFavoriteCarsId } from "redux/selectors";
 import { addFavorite, removeFavorite } from "redux/favoriteSlice";
 
-const CarsItem = ({ car }) => {
+const CarsItem = ({ car, isItemGrid, isItemList }) => {
   const { id, img, make, model, year, rentalPrice, address, rentalCompany, type, accessories } = car;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
@@ -37,7 +37,7 @@ const CarsItem = ({ car }) => {
   };
 
   return (
-    <Container>
+    <Container isItemGrid={isItemGrid} isItemList={isItemList}>
       <Content>
         <ThumbImg>
           <BtnToggleFavorite isFavorite={isFavorite} onClick={toggleFavorite}>
@@ -53,25 +53,28 @@ const CarsItem = ({ car }) => {
             </BasicInfoText>
             <BasicInfoText>{rentalPrice}</BasicInfoText>
           </BasicInfoWrapper>
-             
-          <DescriptionList>
-            <DescriptionItem>{address.split(',')[1]}</DescriptionItem>
-            <DescriptionItem>{address.split(',')[2]}</DescriptionItem>
-            <DescriptionItem>{rentalCompany}</DescriptionItem>
-            <DescriptionItem>{type}</DescriptionItem>
-            <DescriptionItem>{model}</DescriptionItem>
-            <DescriptionItem>{id}</DescriptionItem>
-            <DescriptionItem>{accessories[0]}</DescriptionItem>
-          </DescriptionList>
+          {!isItemList &&
+            <DescriptionList>
+              <DescriptionItem>{address.split(',')[1]}</DescriptionItem>
+              <DescriptionItem>{address.split(',')[2]}</DescriptionItem>
+              <DescriptionItem>{rentalCompany}</DescriptionItem>
+              <DescriptionItem>{type}</DescriptionItem>
+              <DescriptionItem>{model}</DescriptionItem>
+              <DescriptionItem>{id}</DescriptionItem>
+              <DescriptionItem>{accessories[0]}</DescriptionItem>
+            </DescriptionList>
+          }
          
         </BlockInfo>
       </Content>
-      <Button
-        type="button"
-        onClick={openModal}
-      >
-        Learn more
-      </Button>
+      {!isItemList &&
+        <Button
+          type="button"
+          onClick={openModal}
+        >
+          Learn more
+        </Button>
+      }
       {isModalOpen && <CardCarModal onClose={closeModal} carId={id} />}
        
     </Container>

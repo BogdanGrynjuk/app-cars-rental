@@ -43,6 +43,7 @@ const CarsGrid = ({cars}) => {
               <CarsItem
                 key={car.id}
                 car={car}
+                isItemGrid={true}
               />
             ))}
           </Grid>

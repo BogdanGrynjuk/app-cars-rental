@@ -1,21 +1,38 @@
 import styled from "@emotion/styled";
 import defaultImageCar from 'images/image_not_available.svg';
 
+export const Container = styled.li`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex-grow: 1;
 
+  ${(p) =>
+    p.isItemList && 
+    ` padding: 8px;
+      border-radius: ${p.theme.radii.large};
+      box-shadow:  rgba(0, 0, 0, 0.5) 2px 3px 5px;
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+      cursor: pointer;
 
-export const Container = styled.li`  
- display: flex;
- width: 100%;
- flex-direction: column;
- flex-grow: 1;
- 
-  @media screen and (${p => p.theme.mq.tablet}) {
-    max-width: calc((100% - 15px) / 2);
-  }
+      &:hover {        
+        box-shadow: rgba(0, 0, 0, 0.5) 2px 8px 5px;
+      };      
+    `
+  };
 
-  @media screen and (${p => p.theme.mq.desktop}) {
-    max-width: calc((100% - (30px * 3)) / 4);
-  } 
+  ${(p) =>
+    p.isItemGrid &&
+    `
+      @media screen and (${p.theme.mq.tablet}) {     
+        max-width: calc((100% - 15px) / 2);
+      }
+
+      @media screen and (${p.theme.mq.desktop}) {
+        max-width: calc((100% - (30px * 3)) / 4); 
+      }
+    `
+  };  
 `;
 
 export const Content = styled.div`

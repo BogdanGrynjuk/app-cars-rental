@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   favorites: [],
+  activeCard: {},
 };
 
 const favoriteSlice = createSlice({
@@ -14,8 +15,12 @@ const favoriteSlice = createSlice({
     removeFavorite(state, { payload }) {
       state.favorites = state.favorites.filter(item => item !== payload);
     },
+    setActiveCard(state, { payload }) {
+      state.activeCard = { ...payload };
+    },
   },
 });
 
 export const favoriteReducer = favoriteSlice.reducer;
-export const { addFavorite, removeFavorite } = favoriteSlice.actions;
+export const { addFavorite, removeFavorite, setActiveCard } =
+  favoriteSlice.actions;

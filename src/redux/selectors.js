@@ -48,3 +48,5 @@ export const selectFilteredCars = createSelector(
     );
   }
 );
+
+export const selectActiveCard = state => state.favorites.activeCard;

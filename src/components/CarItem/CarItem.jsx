@@ -21,7 +21,7 @@ import CardCarModal from "components/Modals/CardCarModal";
 import { selectFavoriteCarsId } from "redux/selectors";
 import { addFavorite, removeFavorite } from "redux/favoriteSlice";
 
-const CarsItem = ({ car, isItemGrid, isItemList }) => {
+const CarsItem = ({ car, isItemGrid, isItemList, showCardCar }) => {
   const { id, img, make, model, year, rentalPrice, address, rentalCompany, type, accessories } = car;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => setIsModalOpen(true);
@@ -37,7 +37,7 @@ const CarsItem = ({ car, isItemGrid, isItemList }) => {
   };
 
   return (
-    <Container isItemGrid={isItemGrid} isItemList={isItemList}>
+    <Container isItemGrid={isItemGrid} isItemList={isItemList} onClick={showCardCar}>
       <Content>
         <ThumbImg>
           <BtnToggleFavorite isFavorite={isFavorite} onClick={toggleFavorite}>

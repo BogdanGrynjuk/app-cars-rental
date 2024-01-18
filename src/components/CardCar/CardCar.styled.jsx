@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   width: 100%;  
   color: ${p => p.theme.colors.black};
   font-family: ${p => p.theme.fontFamily.manrope};
-  text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px;
+  /* text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px; */
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -21,22 +21,26 @@ export const Wrapper = styled.div`
 `;
 
 export const ThumbImg = styled.div`
+  margin: ${p => p.isFavorite && '0 auto'};
   margin-bottom: 14px;
   width: 100%;
-  height: 248px;
+  height: 248px;  
   overflow: hidden;
   border-radius: ${p => p.theme.radii.large}; 
   background-color: ${p => p.theme.colors.grey};
   background-image: url(${defaultImageCar});
   background-repeat: no-repeat;
   background-position: center; 
+
+  @media screen and (${p => p.theme.mq.desktop}) {
+    height: 496px;    
+  }
 `;
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  
+  object-fit: cover;  
 `;
 
 export const BlockInfo = styled.div`

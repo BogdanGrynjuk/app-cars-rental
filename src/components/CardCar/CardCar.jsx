@@ -5,9 +5,10 @@ import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, Descriptio
 
 import { selectAllCars } from "redux/selectors";
 
-const CardCar = ({ carId, onClose }) => {
+const CardCar = ({ carId, onClose, isFavorite }) => {
 
   const cars = useSelector(selectAllCars);
+  console.log(isFavorite)
 
   const {
     address,
@@ -32,7 +33,7 @@ const CardCar = ({ carId, onClose }) => {
   
   return (
     <Wrapper>
-      <ThumbImg>
+      <ThumbImg isFavorite={isFavorite}>
         <Img src={img} alt={`${make} ${model}`} loading="lazy"/>
       </ThumbImg>
 

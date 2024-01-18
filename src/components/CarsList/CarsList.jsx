@@ -1,21 +1,45 @@
 import CarItem from "components/CarItem";
-import { List } from "./CarsList.styled";
+import { List, TitleList, Wrapper } from "./CarsList.styled";
+
+import { useDispatch } from "react-redux";
+import { setActiveCard } from "redux/favoriteSlice";
 
 
-const CarsList = ({cars}) => {
+
+const CarsList = ({ cars }) => {
+
+  
+  const dispatch = useDispatch();
+
+
+
+  const handleShowCardCar = (car, idx) => {
+    
+    
+    dispatch(setActiveCard(car))  
+    
+  }
+
+  
 
   return (
-    <>      
-      <List>
-        {cars.map(car => (
-          <CarItem
-            key={car.id}
-            car={car}
-            isItemList={true}
-          />
-        ))}
+    <>
+      <Wrapper>
+        <TitleList>Favorite Cars</TitleList>
+        <List>
+          {cars.map((car, idx) => (
+            <CarItem
+              key={car.id}
+              car={car}
+              isItemList={true}
+              showCardCar={() => handleShowCardCar(car, idx)}
+             
+             
+            />
+          ))}
 
-      </List>
+        </List>
+      </Wrapper>
     </>
   );
 };

@@ -26,5 +26,8 @@ export const SectionTitle = styled.h2`
 
         
 export const SectionContent = styled.div`
+display: flex;
+flex-direction: row;
+gap: 30px;
   
 `;

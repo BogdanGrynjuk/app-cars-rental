@@ -1,14 +1,15 @@
 import styled from '@emotion/styled';
 
 export const Section = styled.section`
+  flex: 1;
   padding-top: 16px;
-  display: flex;
-  justify-content: start;
-  align-items: center; 
-
+  display: flex; 
   color: ${p => p.theme.colors.black};
-  font-family: ${p => p.theme.fontFamily.manrope};  
-  /* text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px; */
+  font-family: ${p => p.theme.fontFamily.manrope};
+`;
+
+export const Wrapper = styled.div`
+  flex: 1;
 `;
 
 export const SectionTitle = styled.h2`
@@ -26,8 +27,13 @@ export const SectionTitle = styled.h2`
 
         
 export const SectionContent = styled.div`
+height: 100%;
 display: flex;
 flex-direction: row;
-gap: 30px;
+column-gap: 30px;
+
+ @media screen and (${p => p.theme.mq.desktop}) {
+    column-gap: 50px;  
+  }
   
 `;

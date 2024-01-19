@@ -6,9 +6,9 @@ export const Wrapper = styled.div`
   row-gap: 24px;
   max-width: 320px;
   min-width: 320px;
-  height: 100vh;
   overflow: hidden;
-  padding: 10px; 
+  padding: 8px;
+  padding-left: 2px;
   font-family: ${p => p.theme.fontFamily.manrope};
   color: ${p => p.theme.colors.black};
 
@@ -22,8 +22,7 @@ export const TitleList = styled.h2`
   font-size: ${p => p.theme.fontSizes.xl};
   color: ${p => p.theme.colors.blue};
   text-align: center;
-
-`
+`;
 
 export const List = styled.ul`
   display: flex;

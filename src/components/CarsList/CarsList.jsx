@@ -4,20 +4,12 @@ import { List, TitleList, Wrapper } from "./CarsList.styled";
 import { useDispatch } from "react-redux";
 import { setActiveCard } from "redux/favoriteSlice";
 
-
-
 const CarsList = ({ cars }) => {
-
   
   const dispatch = useDispatch();
 
-
-
-  const handleShowCardCar = (car, idx) => {
-    
-    
-    dispatch(setActiveCard(car))  
-    
+  const handleShowCardCar = (car, idx) => {    
+    dispatch(setActiveCard(car));    
   }
 
   

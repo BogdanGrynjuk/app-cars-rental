@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { IoHeartOutline, IoHeartSharp } from 'react-icons/io5';
 
@@ -24,6 +24,9 @@ import { addFavorite, removeFavorite } from "redux/favoriteSlice";
 const CarsItem = ({ car, isItemGrid, isItemList, showCardCar }) => {
   const { id, img, make, model, year, rentalPrice, address, rentalCompany, type, accessories } = car;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
+
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   
@@ -36,8 +39,26 @@ const CarsItem = ({ car, isItemGrid, isItemList, showCardCar }) => {
     isFavorite ? dispatch(removeFavorite(id)) : dispatch(addFavorite(id))
   };
 
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); 
+
+
+
   return (
-    <Container isItemGrid={isItemGrid} isItemList={isItemList} onClick={showCardCar}>
+    <Container
+      isItemGrid={isItemGrid}
+      isItemList={isItemList}
+      onClick={ (viewportWidth < 768)
+        ? openModal
+        : showCardCar }
+    >
       <Content>
         <ThumbImg>
           <BtnToggleFavorite isFavorite={isFavorite} onClick={toggleFavorite}>

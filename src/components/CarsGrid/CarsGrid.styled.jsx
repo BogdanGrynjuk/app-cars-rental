@@ -5,8 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column; 
   width: 100%;  
   color: ${p => p.theme.colors.black};
-  font-family: ${p => p.theme.fontFamily.manrope};
-  /* text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px; */
+  font-family: ${p => p.theme.fontFamily.manrope};  
 `; 
 
 export const Grid = styled.ul`
@@ -38,7 +37,7 @@ export const Button = styled.button`
   background-color: transparent;
   border: ${p => p.theme.borders.none};  
   text-decoration: underline;
-  text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px;  
+  text-shadow: rgba(0, 0, 0, 0.5) 2px 3px 5px; 
   color: ${p => p.theme.colors.blue};  
   font-family: ${p => p.theme.fontFamily.manrope};
   font-size: ${p => p.theme.fontSizes.s};
@@ -49,6 +48,7 @@ export const Button = styled.button`
   
    &:hover {
     color: ${p => p.theme.colors.lighteBlue};
+    text-shadow: rgba(0, 0, 0, 0.5) 2px 8px 5px;
   };
 
   @media screen and (${p => p.theme.mq.tablet}) {    

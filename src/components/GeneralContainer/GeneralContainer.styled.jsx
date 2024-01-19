@@ -4,6 +4,8 @@ export const Container = styled.div`
   width: 320px;
   padding: 0 8px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 
   @media screen and (${p => p.theme.mq.tablet}) {
     width: 768px;

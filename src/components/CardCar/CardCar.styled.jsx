@@ -5,8 +5,7 @@ import defaultImageCar from "images/image_not_available.svg";
 export const Wrapper = styled.div`
   width: 100%;  
   color: ${p => p.theme.colors.black};
-  font-family: ${p => p.theme.fontFamily.manrope};
-  /* text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px; */
+  font-family: ${p => p.theme.fontFamily.manrope};  
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -30,11 +29,16 @@ export const ThumbImg = styled.div`
   background-color: ${p => p.theme.colors.grey};
   background-image: url(${defaultImageCar});
   background-repeat: no-repeat;
-  background-position: center; 
-
-  @media screen and (${p => p.theme.mq.desktop}) {
-    height: 496px;    
-  }
+  background-position: center;
+  
+  ${ p =>
+    p.isFavorite &&
+    `
+      @media screen and (${p.theme.mq.desktop}) {
+        height: 496px;
+      }
+    `
+  } 
 `;
 
 export const Img = styled.img`

@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+  
   display: flex;
   flex-direction: column;
   row-gap: 24px;
@@ -25,6 +26,7 @@ export const TitleList = styled.h2`
 `;
 
 export const List = styled.ul`
+  height: 900px;
   display: flex;
   flex-direction: column;  
   gap: 30px;

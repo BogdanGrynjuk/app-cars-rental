@@ -6,6 +6,14 @@ export const Container = styled.li`
   width: 100%;
   flex-direction: column;
   flex-grow: 1;
+  border: ${p => p.theme.borders.normal} transparent;  
+
+  ${(p) =>
+    p.isActive && 
+    ` border: ${p.theme.borders.normal} ${p.theme.colors.blue}; `
+  };
+
+
 
   ${(p) =>
     p.isItemList && 

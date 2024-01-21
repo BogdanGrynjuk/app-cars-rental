@@ -8,8 +8,7 @@ import { selectAllCars } from "redux/selectors";
 const CardCar = ({ carId, onClose, isFavorite }) => {
 
   const cars = useSelector(selectAllCars);
-  console.log(isFavorite)
-
+  
   const {
     address,
     id,
@@ -105,6 +104,7 @@ const CardCar = ({ carId, onClose, isFavorite }) => {
 CardCar.propTypes = {
   carId: PropTypes.number.isRequired,
   onClose: PropTypes.func,
+  isFavorite: PropTypes.bool,
 };
 
 export default CardCar;

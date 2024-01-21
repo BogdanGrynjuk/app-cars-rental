@@ -3,7 +3,7 @@ import { IoArrowUpSharp } from "react-icons/io5";
 import defaultImageCar from "images/image_not_available.svg";
 
 export const Wrapper = styled.div`
-  width: 100%;  
+  width: 100%;
   color: ${p => p.theme.colors.black};
   font-family: ${p => p.theme.fontFamily.manrope};  
   overflow-y: scroll;

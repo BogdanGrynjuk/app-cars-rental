@@ -5,15 +5,11 @@ import { selectFavoriteCars } from "redux/selectors";
 
 
 const FavoritesPage = () => {
-  const cars = useSelector(selectFavoriteCars)
-  
-  
- 
+  const cars = useSelector(selectFavoriteCars);  
+   
   return (
-    <>
-      
-      <FavoriteSection cars={cars} />
-      
+    <>      
+      <FavoriteSection cars={cars} />      
     </>
   );
 };

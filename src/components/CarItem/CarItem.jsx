@@ -21,7 +21,7 @@ import CardCarModal from "components/Modals/CardCarModal";
 import { selectFavoriteCarsId } from "redux/selectors";
 import { addFavorite, removeFavorite } from "redux/favoriteSlice";
 
-const CarsItem = ({ car, isItemGrid, isItemList, showCardCar }) => {
+const CarsItem = ({ car, isItemGrid, isItemList, showCardCar, isActive }) => {
   const { id, img, make, model, year, rentalPrice, address, rentalCompany, type, accessories } = car;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
@@ -53,11 +53,13 @@ const CarsItem = ({ car, isItemGrid, isItemList, showCardCar }) => {
 
   return (
     <Container
+      isActive={isActive}
       isItemGrid={isItemGrid}
       isItemList={isItemList}
       onClick={ (viewportWidth < 768)
         ? openModal
-        : showCardCar }
+        : showCardCar
+      }
     >
       <Content>
         <ThumbImg>
@@ -74,6 +76,7 @@ const CarsItem = ({ car, isItemGrid, isItemList, showCardCar }) => {
             </BasicInfoText>
             <BasicInfoText>{rentalPrice}</BasicInfoText>
           </BasicInfoWrapper>
+
           {!isItemList &&
             <DescriptionList>
               <DescriptionItem>{address.split(',')[1]}</DescriptionItem>
@@ -115,6 +118,9 @@ CarsItem.propTypes = {
     type: PropTypes.string.isRequired,
     accessories: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
+  isItemGrid: PropTypes.bool,
+  isItemList: PropTypes.bool,
+  showCardCar: PropTypes.func,
 };
 
 export default CarsItem;

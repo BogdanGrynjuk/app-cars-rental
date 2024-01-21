@@ -8,10 +8,6 @@ export const Section = styled.section`
   font-family: ${p => p.theme.fontFamily.manrope};
 `;
 
-export const Wrapper = styled.div`
-  flex: 1;
-`;
-
 export const SectionTitle = styled.h2`
   position: absolute;
   width: 1px;
@@ -24,16 +20,14 @@ export const SectionTitle = styled.h2`
   clip: rect(0 0 0 0);
   overflow: hidden;
 `;
-
         
-export const SectionContent = styled.div`
-height: 100%;
-display: flex;
-flex-direction: row;
-column-gap: 30px;
+export const SectionContent = styled.div` 
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 30px;
 
  @media screen and (${p => p.theme.mq.desktop}) {
     column-gap: 50px;  
-  }
-  
+  }  
 `;

@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/app-cars-rental/static/css/main.2ebbd1ab.css",
-    "main.js": "/app-cars-rental/static/js/main.0efe6446.js",
+    "main.js": "/app-cars-rental/static/js/main.1070be68.js",
     "static/js/430.ea22abde.chunk.js": "/app-cars-rental/static/js/430.ea22abde.chunk.js",
     "static/js/370.7c28a8e3.chunk.js": "/app-cars-rental/static/js/370.7c28a8e3.chunk.js",
-    "static/js/481.3720aa1b.chunk.js": "/app-cars-rental/static/js/481.3720aa1b.chunk.js",
+    "static/js/481.8ffec6a1.chunk.js": "/app-cars-rental/static/js/481.8ffec6a1.chunk.js",
     "static/js/463.8f0e436e.chunk.js": "/app-cars-rental/static/js/463.8f0e436e.chunk.js",
     "static/js/373.233fa791.chunk.js": "/app-cars-rental/static/js/373.233fa791.chunk.js",
     "static/js/118.12e5fc1d.chunk.js": "/app-cars-rental/static/js/118.12e5fc1d.chunk.js",
@@ -13,16 +13,16 @@
     "static/media/image_not_available.svg": "/app-cars-rental/static/media/image_not_available.765e31c1e3885401d436f4dbd5b42f13.svg",
     "index.html": "/app-cars-rental/index.html",
     "main.2ebbd1ab.css.map": "/app-cars-rental/static/css/main.2ebbd1ab.css.map",
-    "main.0efe6446.js.map": "/app-cars-rental/static/js/main.0efe6446.js.map",
+    "main.1070be68.js.map": "/app-cars-rental/static/js/main.1070be68.js.map",
     "430.ea22abde.chunk.js.map": "/app-cars-rental/static/js/430.ea22abde.chunk.js.map",
     "370.7c28a8e3.chunk.js.map": "/app-cars-rental/static/js/370.7c28a8e3.chunk.js.map",
-    "481.3720aa1b.chunk.js.map": "/app-cars-rental/static/js/481.3720aa1b.chunk.js.map",
+    "481.8ffec6a1.chunk.js.map": "/app-cars-rental/static/js/481.8ffec6a1.chunk.js.map",
     "463.8f0e436e.chunk.js.map": "/app-cars-rental/static/js/463.8f0e436e.chunk.js.map",
     "373.233fa791.chunk.js.map": "/app-cars-rental/static/js/373.233fa791.chunk.js.map",
     "118.12e5fc1d.chunk.js.map": "/app-cars-rental/static/js/118.12e5fc1d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2ebbd1ab.css",
-    "static/js/main.0efe6446.js"
+    "static/js/main.1070be68.js"
   ]
 }

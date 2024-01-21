@@ -26,7 +26,7 @@ export const TitleList = styled.h2`
 `;
 
 export const List = styled.ul`
-  height: 900px;
+  max-height: 900px;
   display: flex;
   flex-direction: column;  
   gap: 30px;

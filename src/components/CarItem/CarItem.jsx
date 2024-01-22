@@ -26,7 +26,6 @@ const CarsItem = ({ car, isItemGrid, isItemList, showCardCar, isActive }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
 
-
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   
@@ -49,14 +48,12 @@ const CarsItem = ({ car, isItemGrid, isItemList, showCardCar, isActive }) => {
     };
   }, []); 
 
-
-
   return (
     <Container
       isActive={isActive}
       isItemGrid={isItemGrid}
       isItemList={isItemList}
-      onClick={ (viewportWidth < 768)
+      onClick={viewportWidth < 768 && isItemList
         ? openModal
         : showCardCar
       }

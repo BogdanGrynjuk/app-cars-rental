@@ -34,7 +34,7 @@ export const List = styled.ul`
   padding: 10px;  
   max-width: 320px;
 
-   @media screen and (${p => p.theme.mq.tablet}) {
+ 
     overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -45,7 +45,7 @@ export const List = styled.ul`
     background-color: ${p => p.theme.colors.secondaryGrey};
     border-radius: ${ p => p.theme.radii.normal};
     border: ${ p => p.theme.borders.normal}  ${p => p.theme.colors.white};
-  };
+  
   }
 
   

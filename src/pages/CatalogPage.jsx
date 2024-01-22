@@ -17,7 +17,10 @@ const CatalogPage = () => {
   return (
     <>
       <FilterSection />
-      <CarsGrid cars={ filteredCars } />
+      {filteredCars.length === 0
+        ? <div>Unfortunately, there are no results for your query</div>
+        :<CarsGrid cars={ filteredCars } />
+      }
     </>
   );
 };

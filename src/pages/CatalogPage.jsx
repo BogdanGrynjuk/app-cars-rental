@@ -4,11 +4,14 @@ import { resetFilter } from "redux/filtersSlice";
 import { useEffect } from "react";
 
 import FilterSection from "components/FilterSection";
-import CarsGrid from "components/CarsGrid";     
+import CarsGrid from "components/CarsGrid";
+import imageError from '../images/image_not_found.svg';
+import ErrorDispay from "components/ErrorDispay";     
 
 const CatalogPage = () => {
   const filteredCars = useSelector(selectFilteredCars);
   const dispatch = useDispatch();
+  const messageError = "Unfortunately, there are no results for your query";
 
   useEffect(() => {
     dispatch(resetFilter());
@@ -18,7 +21,7 @@ const CatalogPage = () => {
     <>
       <FilterSection />
       {filteredCars.length === 0
-        ? <div>Unfortunately, there are no results for your query</div>
+        ? <ErrorDispay messageError={messageError} imageError={imageError}/>
         :<CarsGrid cars={ filteredCars } />
       }
     </>

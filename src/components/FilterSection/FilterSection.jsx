@@ -39,8 +39,7 @@ const FilterSection = () => {
     },
   };
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = (values) => {    
     dispatch(updateFilter(values));
   };    
 

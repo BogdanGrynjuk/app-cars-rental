@@ -12,7 +12,6 @@ export const getAllCars = createAsyncThunk(
       const response = await axios.get('/cars');
       return response.data;
     } catch (error) {
-      console.log(errorMessage);
       return thunkAPI.rejectWithValue(errorMessage);
     }
   }

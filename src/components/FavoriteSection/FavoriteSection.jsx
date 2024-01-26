@@ -32,7 +32,7 @@ const FavoriteSection = ({ cars }) => {
             <CarsList cars={cars} />
             {Object.keys(activeCardCar).length === 0 || viewportWidth <  768
               ? null
-              : <CardCar carId={carId} isFavorite={true} />              
+              : <CardCar carId={carId} isFavorite={true} showTitle={true} />              
             }
           </SectionContent>
        

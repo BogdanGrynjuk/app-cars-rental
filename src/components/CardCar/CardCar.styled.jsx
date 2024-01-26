@@ -19,6 +19,14 @@ export const Wrapper = styled.div`
   };
 `;
 
+export const TitleCard = styled.h2`
+  margin-bottom: 24px;
+  font-family: ${p => p.theme.fontFamily.manrope};
+  font-size: ${p => p.theme.fontSizes.xl};
+  color: ${p => p.theme.colors.blue};
+  text-align: center;
+`;
+
 export const ThumbImg = styled.div`
   margin: ${p => p.isFavorite && '0 auto'};
   margin-bottom: 14px;

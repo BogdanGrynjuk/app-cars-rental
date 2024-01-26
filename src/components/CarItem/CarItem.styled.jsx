@@ -6,14 +6,16 @@ export const Container = styled.li`
   width: 100%;
   flex-direction: column;
   flex-grow: 1;
-  border: ${p => p.theme.borders.normal} transparent;  
+  border: ${p => p.theme.borders.large} transparent;  
 
-  ${(p) =>
-    p.isActive && 
-    ` border: ${p.theme.borders.normal} ${p.theme.colors.blue}; `
+
+  @media screen and (${p => p.theme.mq.tablet}) {
+    ${(p) =>
+      p.isActive && 
+      ` border: ${p.theme.borders.large} ${p.theme.colors.blue}; `
+    };  
   };
-
-
+  
 
   ${(p) =>
     p.isItemList && 

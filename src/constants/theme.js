@@ -39,6 +39,7 @@ export const theme = Object.freeze({
   borders: {
     none: 'none',
     normal: '1px solid',
+    large: '2px solid',
   },
 
   mq: {

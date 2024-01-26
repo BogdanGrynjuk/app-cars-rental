@@ -10,7 +10,7 @@ const ErrorDisplay = ({messageError, imageError, showButton, onButtonClick, butt
           <img src={imageError} alt={messageError} />
         </ThumbImg>
         <ErrorMessage>{messageError}</ErrorMessage>
-        {showButton && <Btn onClick={onButtonClick}>{buttonLabel}</Btn>}
+        {showButton && <Btn type="button" onClick={onButtonClick}>{buttonLabel}</Btn>}
       </GeneralContainer>
     </Section>    
   );

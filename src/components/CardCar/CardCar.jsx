@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import { useSelector } from "react-redux";
 
-import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle, RentalConditionsList, RentalConditionsItem, BlockButtons, BtnRentalCar, BtnBack, IconArrowUp } from "./CardCar.styled";
+import { BasicInfoText, BasicInfoWrapper, BlockInfo, DescriptionItem, DescriptionList, Img, ThumbImg, DescriptionText, Wrapper, SecondaryInfoWrapper, SecondaryInfoTitle, RentalConditionsList, RentalConditionsItem, BlockButtons, BtnRentalCar, BtnBack, IconArrowUp, TitleCard } from "./CardCar.styled";
 
 import { selectAllCars } from "redux/selectors";
 
-const CardCar = ({ carId, onClose, isFavorite }) => {
+const CardCar = ({ carId, onClose, isFavorite, showTitle }) => {
 
   const cars = useSelector(selectAllCars);
   
@@ -32,6 +32,8 @@ const CardCar = ({ carId, onClose, isFavorite }) => {
   
   return (
     <Wrapper>
+      {showTitle && <TitleCard>Car details</TitleCard>}
+
       <ThumbImg isFavorite={isFavorite}>
         <Img src={img} alt={`${make} ${model}`} loading="lazy"/>
       </ThumbImg>
@@ -56,8 +58,7 @@ const CardCar = ({ carId, onClose, isFavorite }) => {
           </DescriptionList>
 
           <DescriptionText>{description}</DescriptionText>
-        </BasicInfoWrapper>
-        
+        </BasicInfoWrapper>        
 
         <SecondaryInfoWrapper>
           <SecondaryInfoTitle>
@@ -105,6 +106,7 @@ CardCar.propTypes = {
   carId: PropTypes.number.isRequired,
   onClose: PropTypes.func,
   isFavorite: PropTypes.bool,
+  showTitle: PropTypes.bool,
 };
 
 export default CardCar;

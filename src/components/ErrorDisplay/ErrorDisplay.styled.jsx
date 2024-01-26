@@ -14,14 +14,13 @@ width: 100%;
 & > img {
   margin: 0 auto;
   object-fit: cover;
-}
-  
+} 
 
   @media screen and (${p => p.theme.mq.tablet}) {
     width: 50%;
     overflow: hidden;  
   }  
-` 
+`;
 
 export const ErrorMessage = styled.h1` 
   text-align: center;
@@ -35,7 +34,6 @@ export const ErrorMessage = styled.h1`
   @media screen and (${p => p.theme.mq.desktop}) {
     font-size: ${p => p.theme.fontSizes.xxl};    
   }   
-
 `;
 
 export const Btn = styled.button`
@@ -62,4 +60,4 @@ export const Btn = styled.button`
   @media screen and (${p => p.theme.mq.tablet}) {
     width: 274px; 
   }  
-`
+`;

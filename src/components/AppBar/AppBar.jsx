@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from "react-redux";
-import { getAllCars } from "redux/operations";
 
 import { Header, Container, BtnMenuNavigation, IconMenu, Link } from './AppBar.styled';
 
@@ -8,19 +6,13 @@ import Logo from 'components/Logo';
 import Navigation from 'components/Navigation';
 import AppBarModal from 'components/Modals/AppBarModal';
 
-
-export const AppBar = () => {
-
-  const dispath = useDispatch();
-  
+export const AppBar = () => {    
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viewportWidth, setViewportWidth] = useState(window.innerWidth);
   
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-  
-  useEffect(() => { dispath(getAllCars()) }, [dispath]);
-  
+     
   useEffect(() => {
     const handleResize = () => {
       setViewportWidth(window.innerWidth);

@@ -20,7 +20,7 @@ export const Wrapper = styled.div`
 `;
 
 export const TitleCard = styled.h2`
-  margin-bottom: 24px;
+  margin: 8px 0 24px;
   font-family: ${p => p.theme.fontFamily.manrope};
   font-size: ${p => p.theme.fontSizes.xl};
   color: ${p => p.theme.colors.blue};

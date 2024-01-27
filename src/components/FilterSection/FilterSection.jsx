@@ -109,18 +109,15 @@ const FilterSection = () => {
 
                 <GroupInputs>
                   <FormikControl>
-                    <Input type="number" name="mileage.from" placeholder="From" />
-                    
+                    <Input type="number" name="mileage.from" placeholder="From" />                    
                   </FormikControl>
           
                   <FormikControl>
-                    <Input type="number" name="mileage.to" placeholder="To" />
-                    
+                    <Input type="number" name="mileage.to" placeholder="To" />                    
                   </FormikControl>
                 </GroupInputs>
                 <ErrorMsg name="mileage.from" component={'div'} />
                 <ErrorMsg name="mileage.to" component={'div'} />
-
               </FormikControl>
         
               <BtnControl>

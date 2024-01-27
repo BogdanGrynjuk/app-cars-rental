@@ -19,6 +19,10 @@ width: 100%;
   @media screen and (${p => p.theme.mq.tablet}) {
     width: 50%;
     overflow: hidden;  
+  }
+  
+  @media screen and (${p => p.theme.mq.desktop}) {
+    width: 25%;      
   }  
 `;
 
@@ -32,7 +36,7 @@ export const ErrorMessage = styled.h1`
   }
 
   @media screen and (${p => p.theme.mq.desktop}) {
-    font-size: ${p => p.theme.fontSizes.xxl};    
+    font-size: ${p => p.theme.fontSizes.xl};    
   }   
 `;
 

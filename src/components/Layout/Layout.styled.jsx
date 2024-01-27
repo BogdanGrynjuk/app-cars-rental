@@ -5,3 +5,7 @@ export const Main = styled.main`
   display: flex;
   flex-direction: column;  
 `;
+export const Footer = styled.footer`
+height: 300px;
+
+`

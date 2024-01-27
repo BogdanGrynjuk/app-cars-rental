@@ -1,6 +1,14 @@
 import styled from '@emotion/styled';
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
+const classShow = `
+  &.show {
+    opacity: 1;
+    transform: translateX( 0 ) ;
+    transition: all 1000ms ease-out ;   
+  }
+`; 
+
 export const Section = styled.section`
   padding-top: 16px;
   display: flex;
@@ -9,7 +17,6 @@ export const Section = styled.section`
 
   color: ${p => p.theme.colors.black};
   font-family: ${p => p.theme.fontFamily.manrope};  
-  /* text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px; */
 `;
 
 export const SectionTitle = styled.h2`
@@ -41,15 +48,18 @@ export const SectionContent = styled.div`
   @media screen and (${p => p.theme.mq.desktop}) {
     gap: 12px;
   }
-
 `;
 
 export const ThumbImg = styled.div`
   width: 100%;
+  transform: translateX( -100% );
+  opacity: 0;
+
+  ${classShow};  
 
   @media screen and (${p => p.theme.mq.desktop}) {
     width: calc((100% - 12px) / 2);
-    overflow: hidden;  
+    overflow: hidden;    
   }  
 `;
 
@@ -58,10 +68,14 @@ export const BenefitsList = styled.ul`
   flex-direction: column;
   row-gap: 8px;
   width: 100%;  
+  transform: translateX( 100% );
+  opacity: 0;
+
+  ${classShow};
 
   @media screen and (${p => p.theme.mq.desktop}) {
     width: calc((100% - 12px) / 2);
-    row-gap: 12px;
+    row-gap: 12px;    
   }
 `;
 
@@ -83,4 +97,5 @@ export const BenefitsItem = styled.li`
 
 export const Marker = styled(IoMdCheckmarkCircleOutline)`
   color: ${p => p.theme.colors.blue}
-`
+`;
+

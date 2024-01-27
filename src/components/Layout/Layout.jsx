@@ -9,7 +9,7 @@ import AppBar from 'components/AppBar';
 import Loader from 'components/Loader';
 import ErrorDisplay from 'components/ErrorDisplay';
 
-import { Main } from './Layout.styled';
+import { Footer, Main } from './Layout.styled';
 
 const Layout = () => {
   const dispath = useDispatch();
@@ -30,7 +30,7 @@ const Layout = () => {
     <>
       <AppBar />
       <Main id="content">
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={null}>
           {isLoading && <Loader />}
           {error
             ? < ErrorDisplay messageError={error} imageError="https://cdn.rawgit.com/ahmedhosna95/upload/1731955f/sad404.svg" />
@@ -38,7 +38,7 @@ const Layout = () => {
           }
         </Suspense>
       </Main>
-      <footer>this is footer</footer>
+      <Footer>this is footer</Footer>
     </>
   );
 };

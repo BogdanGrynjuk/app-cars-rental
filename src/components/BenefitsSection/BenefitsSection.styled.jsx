@@ -10,7 +10,7 @@ const classShow = `
 `; 
 
 export const Section = styled.section`
-  padding-top: 16px;
+  padding: 16px 0;
   display: flex;
   justify-content: start;
   align-items: center; 
@@ -40,6 +40,7 @@ export const SectionContent = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
+  overflow: hidden;
   
   @media screen and (${p => p.theme.mq.tablet}) {
     flex-direction: row;

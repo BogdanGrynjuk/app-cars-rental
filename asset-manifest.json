@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/app-cars-rental/static/css/main.2ebbd1ab.css",
-    "main.js": "/app-cars-rental/static/js/main.93f8b81b.js",
-    "static/js/62.d584871b.chunk.js": "/app-cars-rental/static/js/62.d584871b.chunk.js",
+    "main.js": "/app-cars-rental/static/js/main.bf84c21a.js",
+    "static/js/62.dbf09903.chunk.js": "/app-cars-rental/static/js/62.dbf09903.chunk.js",
     "static/js/753.2ca61ac0.chunk.js": "/app-cars-rental/static/js/753.2ca61ac0.chunk.js",
     "static/js/406.9afe74ef.chunk.js": "/app-cars-rental/static/js/406.9afe74ef.chunk.js",
     "static/js/212.e3a44b19.chunk.js": "/app-cars-rental/static/js/212.e3a44b19.chunk.js",
@@ -13,17 +13,17 @@
     "static/media/kia.png": "/app-cars-rental/static/media/kia.bbc54e1eb6c6088a16d3.png",
     "static/media/service-wash.svg": "/app-cars-rental/static/media/service-wash.f41c74e0a575e11554d453e8d671dfd8.svg",
     "static/media/service-towing.svg": "/app-cars-rental/static/media/service-towing.434ae00d4fb786bba6801baa351bba64.svg",
-    "static/media/service-tire.svg": "/app-cars-rental/static/media/service-tire.e71e69b2990c928f7851d4f1725d48bb.svg",
-    "static/media/service-fuel.svg": "/app-cars-rental/static/media/service-fuel.5d1d18c1bffe985561d8545b48a182c1.svg",
+    "static/media/service-tire.svg": "/app-cars-rental/static/media/service-tire.73c2115383bc2a95e9e2b75cb73267d6.svg",
     "static/media/service-repair.svg": "/app-cars-rental/static/media/service-repair.0fd652e46612098743d59d55d8e497cb.svg",
+    "static/media/service-fuel.svg": "/app-cars-rental/static/media/service-fuel.ab363398b85e0e3cf9d5a67f935a116f.svg",
     "static/media/image_not_found.svg": "/app-cars-rental/static/media/image_not_found.abe26c68048e435ba2cc71806bc6c80a.svg",
     "static/media/image-page-not-found.svg": "/app-cars-rental/static/media/image-page-not-found.abdfdc1916d0d6af1be4c7c71c675132.svg",
     "static/media/image_not_available.svg": "/app-cars-rental/static/media/image_not_available.765e31c1e3885401d436f4dbd5b42f13.svg",
     "static/media/image_empty.svg": "/app-cars-rental/static/media/image_empty.bffda95db82020e5748441b468781762.svg",
     "index.html": "/app-cars-rental/index.html",
     "main.2ebbd1ab.css.map": "/app-cars-rental/static/css/main.2ebbd1ab.css.map",
-    "main.93f8b81b.js.map": "/app-cars-rental/static/js/main.93f8b81b.js.map",
-    "62.d584871b.chunk.js.map": "/app-cars-rental/static/js/62.d584871b.chunk.js.map",
+    "main.bf84c21a.js.map": "/app-cars-rental/static/js/main.bf84c21a.js.map",
+    "62.dbf09903.chunk.js.map": "/app-cars-rental/static/js/62.dbf09903.chunk.js.map",
     "753.2ca61ac0.chunk.js.map": "/app-cars-rental/static/js/753.2ca61ac0.chunk.js.map",
     "406.9afe74ef.chunk.js.map": "/app-cars-rental/static/js/406.9afe74ef.chunk.js.map",
     "212.e3a44b19.chunk.js.map": "/app-cars-rental/static/js/212.e3a44b19.chunk.js.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.2ebbd1ab.css",
-    "static/js/main.93f8b81b.js"
+    "static/js/main.bf84c21a.js"
   ]
 }

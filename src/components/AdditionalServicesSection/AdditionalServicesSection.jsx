@@ -3,7 +3,7 @@ import React from 'react';
 import GeneralContainer from 'components/GeneralContainer';
 import { services } from 'constants/dataSerices';
 
-import { Section, SectionContent, SectionTitle, ServicesItem, ServicesList } from './AdditionalServicesSection.styled';
+import { BtnOrderService, Section, SectionContent, SectionTitle, ServiceDescription, ServiceDetails, ServiceIcon, ServiceName, ServicesItem, ServicesList } from './AdditionalServicesSection.styled';
 
 
 
@@ -19,13 +19,16 @@ const AdditionalServicesSection = () => {
             {services.map((service, index) => {
               return (
                 <ServicesItem key={index}>
-                  <span>
+                  <BtnOrderService className='service-btn-order'>
+                    <a href='tel:+380730000000'>Order</a>
+                  </BtnOrderService>
+                  <ServiceIcon className='service-icon'>
                     <img src={service.icon } alt={service.name} />
-                  </span>
-                  <div>
-                    <h3>{service.name}</h3>
-                  <p>{service.details}</p>
-                  </div>
+                  </ServiceIcon>
+                  <ServiceDescription>
+                    <ServiceName className='service-name'>{service.name}</ServiceName>
+                    <ServiceDetails className='service-details'>{service.details}</ServiceDetails>
+                  </ServiceDescription>
                 </ServicesItem>
               )
             })}           

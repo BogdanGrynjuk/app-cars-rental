@@ -1,15 +1,16 @@
 import styled from "@emotion/styled";
-import bgHero from "images/bg-hero.jpg";
+
+// import bgHeroMobile from "images/bg-hero-mobile-1.jpg";
 
 export const Section = styled.section`
   display: flex;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   background: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0.1),
       rgba(0, 0, 0, 0.3)
-    ), url(${bgHero});
+    ), url(${p => p.bgImage});
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -17,9 +18,25 @@ export const Section = styled.section`
   width: 100%;
   height: 100vh;
 
-  color: ${p => p.theme.colors.black};
+  color: ${p => p.theme.colors.white};
   font-family: ${p => p.theme.fontFamily.manrope};  
-  text-shadow: ${p => p.theme.colors.grey} 1px 1px 2px;  
+  text-shadow: ${p => p.theme.colors.black} 1px 1px 2px;
+/* 
+  @media screen and (${p => p.theme.mq.tablet}) {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.3)
+    ), url(${p => p.bgImageTablet});
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+  } */
+  
+  
 `;
 
 export const Content = styled.div`
@@ -38,6 +55,7 @@ export const Content = styled.div`
 `;
 
 export const TextMain = styled.h1`
+color: white;
   font-size: ${p => p.theme.fontSizes.xxl};
   
   @media screen and (${p => p.theme.mq.tablet}) {

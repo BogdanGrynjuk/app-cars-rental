@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-// import bgHeroMobile from "images/bg-hero-mobile-1.jpg";
-
 export const Section = styled.section`
   display: flex;
   justify-content: start;
@@ -17,49 +15,32 @@ export const Section = styled.section`
   background-position: center;
   width: 100%;
   height: 100vh;
-
   color: ${p => p.theme.colors.white};
   font-family: ${p => p.theme.fontFamily.manrope};  
   text-shadow: ${p => p.theme.colors.black} 1px 1px 2px;
-/* 
-  @media screen and (${p => p.theme.mq.tablet}) {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.1),
-      rgba(0, 0, 0, 0.3)
-    ), url(${p => p.bgImageTablet});
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-  } */
-  
   
 `;
 
 export const Content = styled.div`
+  padding: 24px 0 64px;  
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  justify-content: space-between;  
+  height: 100%;
   width: 100%;
 
   @media screen and (${p => p.theme.mq.tablet}) {
-    width: 70%;
-  }
-
-  @media screen and (${p => p.theme.mq.desktop}) {
-    gap: 12px;
+   padding: 48px 0 88px;
   }
 `;
 
-export const TextMain = styled.h1`
-color: white;
+export const Slogan = styled.h1`
+  align-self: self-start;
+  color: ${p => p.theme.colors.white};
   font-size: ${p => p.theme.fontSizes.xxl};
   
-  @media screen and (${p => p.theme.mq.tablet}) {
-    font-size: 40px;    
+  @media screen and (${p => p.theme.mq.tablet}) {    
+    font-size: 40px;       
   }
 
   @media screen and (${p => p.theme.mq.desktop}) {
@@ -67,13 +48,23 @@ color: white;
   }
 `;
 
-export const DecorLine = styled.div`
-  margin: 12px 0;
-  width: 200px;
-  border: ${p=> p.theme.borders.normal} ${p => p.theme.colors.blue};
-`
+export const Positioner = styled.div`  
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  row-gap: 12px;
+`;
 
-export const TextSecondary = styled.h2`
+export const DecorLine = styled.div`  
+  width: 100%;
+  border: ${p => p.theme.borders.normal} ${p => p.theme.colors.blue};
+
+  @media screen and (${p => p.theme.mq.tablet}) {
+    width: 274px;          
+  }
+`;
+
+export const AnimateText = styled.h2`
   margin-bottom: 12px;  
   font-size: ${p => p.theme.fontSizes.l};
   
@@ -87,6 +78,7 @@ export const TextSecondary = styled.h2`
 `;
 
 export const Btn = styled.button`
+  align-self: self-end;
   width: 100%;  
   padding: 12px;
   border: none;

@@ -1,13 +1,9 @@
 import React from 'react';
 
 import GeneralContainer from 'components/GeneralContainer';
-import { services } from 'constants/dataSerices';
+import { services } from 'constants/dataServices';
 
 import { BtnOrderService, Section, SectionContent, SectionTitle, ServiceDescription, ServiceDetails, ServiceIcon, ServiceName, ServicesItem, ServicesList } from './AdditionalServicesSection.styled';
-
-
-
-
 
 const AdditionalServicesSection = () => {
   return (

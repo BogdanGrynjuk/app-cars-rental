@@ -8,7 +8,7 @@ export const Section = styled.section`
       to bottom,
       rgba(0, 0, 0, 0.1),
       rgba(0, 0, 0, 0.3)
-    ), url(${p => p.bgImage});
+    ), url(${p => p.bgImages[0]});
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -18,7 +18,22 @@ export const Section = styled.section`
   color: ${p => p.theme.colors.white};
   font-family: ${p => p.theme.fontFamily.manrope};  
   text-shadow: ${p => p.theme.colors.black} 1px 1px 2px;
-  
+  animation: backgroundChange 15s linear infinite;
+
+  @keyframes backgroundChange {
+  0%, 26.67% {
+    background-image: url(${p => p.bgImages[0]});
+  }
+  33.33%, 60% {
+    background-image: url(${p => p.bgImages[1]});
+  }    
+  66.67%, 93.33% {
+    background-image: url(${p => p.bgImages[2]});
+  }
+  100% {
+    background-image: url(${p => p.bgImages[0]});
+  }    
+}
 `;
 
 export const Content = styled.div`
@@ -64,9 +79,11 @@ export const DecorLine = styled.div`
   }
 `;
 
-export const AnimateText = styled.h2`
+export const AnimatedText = styled.h2`
   margin-bottom: 12px;  
   font-size: ${p => p.theme.fontSizes.l};
+  animation: textAnimation 5s linear infinite;
+  
   
   @media screen and (${p => p.theme.mq.tablet}) {
     font-size: ${p => p.theme.fontSizes.xl};    
@@ -75,6 +92,18 @@ export const AnimateText = styled.h2`
   @media screen and (${p => p.theme.mq.desktop}) {
     font-size: ${p => p.theme.fontSizes.xxl};    
   }  
+
+  @keyframes textAnimation {
+    0% {
+      opacity: 0;
+    }  
+    10%, 90% {
+      opacity: 1;
+    }  
+    100% {
+      opacity: 0;
+    }
+  }    
 `;
 
 export const Btn = styled.button`

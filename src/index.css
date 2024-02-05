@@ -24,14 +24,22 @@ body {
   margin: 0 auto;
   transition: 1.5s;
   
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  
-  &::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-  }
 }
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(18, 20, 23, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+
+
+
+
+
 
 #root {
   display: flex;

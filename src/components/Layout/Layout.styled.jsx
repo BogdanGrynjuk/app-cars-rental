@@ -6,6 +6,7 @@ export const Main = styled.main`
   flex-direction: column;  
 `;
 export const Footer = styled.footer`
-height: 300px;
+  height: 150px;
+  background-color: red;
 
 `

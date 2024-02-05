@@ -13,10 +13,11 @@ export const Section = styled.section`
   padding: 16px 0;
   display: flex;
   justify-content: start;
-  align-items: center; 
-
+  align-items: center;
+  overflow: hidden;
   color: ${p => p.theme.colors.black};
-  font-family: ${p => p.theme.fontFamily.manrope};  
+  font-family: ${p => p.theme.fontFamily.manrope};
+   
 `;
 
 export const SectionTitle = styled.h2`
@@ -40,7 +41,7 @@ export const SectionContent = styled.div`
   justify-content: center;
   align-items: center;
   gap: 8px;
-  overflow: hidden;
+  /* overflow: hidden; */
   
   @media screen and (${p => p.theme.mq.tablet}) {
     flex-direction: row;

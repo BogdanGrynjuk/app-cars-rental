@@ -72,7 +72,8 @@ export const Positioner = styled.div`
 
 export const DecorLine = styled.div`  
   width: 100%;
-  border: ${p => p.theme.borders.normal} ${p => p.theme.colors.blue};
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, ${p => p.theme.colors.blue} 50%, transparent 100%);
 
   @media screen and (${p => p.theme.mq.tablet}) {
     width: 274px;          

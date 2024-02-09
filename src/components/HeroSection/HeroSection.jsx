@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { getCurrentBackgrounds } from "helpers/getCurrentBackgroundsForHeroSection";
@@ -7,24 +8,24 @@ import GeneralContainer from "components/GeneralContainer";
 import Logotype from "components/Logo/Logo";
 import { Section, Content, Slogan, AnimatedText, DecorLine, Btn, Positioner } from "./HeroSection.styled";
 
-const HeroSection = () => {  
+const HeroSection = ({ bgImages }) => {
   const [currentAdvertisementPhraseIndex, setCurrentAdvertisementPhraseIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [currentBackgrounds, setCurrentBackgrounds] = useState(getCurrentBackgrounds(window.innerWidth));  
+  const [currentBackgrounds, setCurrentBackgrounds] = useState(getCurrentBackgrounds(window.innerWidth));
   
+  const currentAdvertisementPhrase = advertisementPhrases[currentAdvertisementPhraseIndex];
   const navigate = useNavigate();
+
   const handleClick = () => navigate('/catalog');
 
-  const currentAdvertisementPhrase = advertisementPhrases[currentAdvertisementPhraseIndex];
+  const handleResize = useCallback(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
 
   useEffect(() => {
-    const handleResize = () => {      
-      setWindowWidth(window.innerWidth);
-    };
-      
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [handleResize]);
       
   useEffect(() => {
     setCurrentBackgrounds(getCurrentBackgrounds(windowWidth));
@@ -38,7 +39,7 @@ const HeroSection = () => {
     return () => {
       clearInterval(textInterval);
     };
-  }, []);  
+  }, [currentAdvertisementPhraseIndex]);
 
   return (
     <Section bgImages={currentBackgrounds}>
@@ -46,7 +47,7 @@ const HeroSection = () => {
         <Content>
           <Slogan><Logotype isLight={true} />. Where comfort meets service</Slogan>
           <Positioner>
-            <DecorLine />            
+            <DecorLine />
             <AnimatedText>{currentAdvertisementPhrase}</AnimatedText>
             <Btn type="button" onClick={handleClick}>Choose auto</Btn>
           </Positioner>
@@ -54,6 +55,11 @@ const HeroSection = () => {
       </GeneralContainer>
     </Section>
   );
+};
+
+HeroSection.propTypes = {
+  // Prop bgImages is generated internally within the component and is not passed from the outside
+  bgImages: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default HeroSection;

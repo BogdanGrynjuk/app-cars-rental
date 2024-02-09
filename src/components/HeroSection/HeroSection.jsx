@@ -8,12 +8,27 @@ import Logotype from "components/Logo/Logo";
 import { Section, Content, Slogan, AnimatedText, DecorLine, Btn, Positioner } from "./HeroSection.styled";
 
 const HeroSection = () => {  
-  const [currentAdvertisementPhraseIndex, setCurrentAdvertisementPhraseIndex] =useState(0);
+  const [currentAdvertisementPhraseIndex, setCurrentAdvertisementPhraseIndex] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [currentBackgrounds, setCurrentBackgrounds] = useState(getCurrentBackgrounds(window.innerWidth));  
   
   const navigate = useNavigate();
   const handleClick = () => navigate('/catalog');
 
-  const currentAdvertisementPhrase = advertisementPhrases[currentAdvertisementPhraseIndex]
+  const currentAdvertisementPhrase = advertisementPhrases[currentAdvertisementPhraseIndex];
+
+  useEffect(() => {
+    const handleResize = () => {      
+      setWindowWidth(window.innerWidth);
+    };
+      
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+      
+  useEffect(() => {
+    setCurrentBackgrounds(getCurrentBackgrounds(windowWidth));
+  }, [windowWidth]);
 
   useEffect(() => {
     const textInterval = setInterval(() => {
@@ -26,7 +41,7 @@ const HeroSection = () => {
   }, []);  
 
   return (
-    <Section bgImages={getCurrentBackgrounds()}>
+    <Section bgImages={currentBackgrounds}>
       <GeneralContainer>
         <Content>
           <Slogan><Logotype isLight={true} />. Where comfort meets service</Slogan>

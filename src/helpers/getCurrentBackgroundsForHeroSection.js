@@ -14,14 +14,14 @@ const mobileBackgrounds = [bgHeroMobile1, bgHeroMobile2, bgHeroMobile3];
 const tabletBackgrounds = [bgHeroTablet1, bgHeroTablet2, bgHeroTablet3];
 const desktopBackgrounds = [bgHeroDesktop1, bgHeroDesktop2, bgHeroDesktop3];
 
-export const getCurrentBackgrounds = () => {
-  const width = window.innerWidth;
-
+export const getCurrentBackgrounds = width => {
   if (width < 768) {
-    return mobileBackgrounds;
+    return mobileBackgrounds.map(image => `${image}?v=${new Date().getTime()}`);
   } else if (width >= 768 && width < 1280) {
-    return tabletBackgrounds;
+    return tabletBackgrounds.map(image => `${image}?v=${new Date().getTime()}`);
   } else {
-    return desktopBackgrounds;
+    return desktopBackgrounds.map(
+      image => `${image}?v=${new Date().getTime()}`
+    );
   }
 };

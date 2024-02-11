@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { IoArrowUp, IoArrowDown  } from "react-icons/io5";
 
 export const Section = styled.section`
   padding: 16px 0;
@@ -33,18 +34,74 @@ export const SectionTitle = styled.h2`
 export const SectionContent = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   width: 100%;
   height: 50vh; 
 `;
 
 export const Slide = styled.div`
   position: relative;
-  width: calc(100% - 20px);
+  width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+`;
+
+export const ButtonsWrapper = styled.div`
+  position: absolute;  
+  bottom: 0;
+  display: flex;  
+  column-gap: 18px;
+`;
+
+export const BtnStepChange = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;  
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  box-shadow:  rgb(138, 138, 137, 1) 2px 3px 5px;   
+  cursor: pointer; 
+  
+  &:hover {
+    box-shadow:  rgb(138, 138, 137, 1) 2px 8px 5px;
+  }
+`;
+
+export const IconArrowUp = styled(IoArrowUp)`
+  fill: ${p => p.theme.colors.black}; 
+`;
+
+export const IconArrowDown = styled(IoArrowDown)`
+  fill: ${p => p.theme.colors.black}; 
+`;
+
+export const ActiveBreakpoint = styled.span`
+  background-color: ${p => p.theme.colors.blue};
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    box-shadow: 0 0 10px ${p => p.theme.colors.lighteBlue}, 
+                0 0 15px ${p => p.theme.colors.lighteBlue};
+`;
+
+export const SlideContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
 `;
 
 export const SlideProgressBar = styled.div`
@@ -67,16 +124,4 @@ export const Breakpoint = styled.div`
   &:nth-child( 2 ) { top: calc(  (100% / 3) - 5px ); }
   &:nth-child( 3 ) { top: calc(  (100% / 3) * 2 - 5px ); }
   &:nth-child( 4 ) { top: calc(  (100% / 3) * 3 - 5px ); }
-`;
-
-export const ActiveBreakpoint = styled.span`
-  background-color: ${p => p.theme.colors.blue};
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    box-shadow: 0 0 10px ${p => p.theme.colors.lighteBlue}, 
-                0 0 15px ${p => p.theme.colors.lighteBlue};
 `;

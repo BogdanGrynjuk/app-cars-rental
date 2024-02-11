@@ -59,7 +59,7 @@ const HeroSection = ({ bgImages }) => {
 
 HeroSection.propTypes = {
   // Prop bgImages is generated internally within the component and is not passed from the outside
-  bgImages: PropTypes.arrayOf(PropTypes.string).isRequired,
+  bgImages: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default HeroSection;

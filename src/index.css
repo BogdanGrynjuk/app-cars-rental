@@ -35,12 +35,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 1);
 }
 
-
-
-
-
-
-
 #root {
   display: flex;
   flex-direction: column;

@@ -7,6 +7,9 @@ export const Main = styled.main`
 `;
 export const Footer = styled.footer`
   height: 150px;
-  background-color: red;
+  background: linear-gradient( 
+    to bottom,  
+    ${p=>p.theme.colors.lighteBlue}, 
+    ${p => p.theme.colors.blue}); 
 
 `

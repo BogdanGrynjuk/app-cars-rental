@@ -7,8 +7,8 @@ export const Section = styled.section`
   align-items: center;
   background: linear-gradient( 
     to bottom,  
-    ${p=>p.theme.colors.lighteBlue}, 
-    ${p=>p.theme.colors.blue});
+    ${p=>p.theme.colors.greyForBgInput}, 
+    ${p => p.theme.colors.lighteGrey}); 
   color: ${p => p.theme.colors.black};
   font-family: ${p => p.theme.fontFamily.manrope};  
 `;
@@ -59,8 +59,8 @@ export const ServicesItem = styled.li`
   aspect-ratio: 1;
   border-radius: 50%;
   background-color: ${p => p.theme.colors.white};
-  box-shadow: 0 0 10px ${p => p.theme.colors.white}, 
-              0 0 15px ${p => p.theme.colors.white};
+  box-shadow: 0 0 10px ${p => p.theme.colors.grey}, 
+              0 0 15px ${p => p.theme.colors.grey};
   transition: 0.5s;
 
   @media screen and (${p => p.theme.mq.tablet}) {

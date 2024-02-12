@@ -6,7 +6,7 @@ export const Section = styled.section`
   display: flex;
   justify-content: start;
   align-items: center;  
-  overflow: hidden;
+  
   background: linear-gradient( 
     to bottom,  
     ${p=>p.theme.colors.white}, 
@@ -84,14 +84,19 @@ export const IconArrowDown = styled(IoArrowDown)`
 
 export const ActiveBreakpoint = styled.span`
   background-color: ${p => p.theme.colors.blue};
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    box-shadow: 0 0 10px ${p => p.theme.colors.lighteBlue}, 
-                0 0 15px ${p => p.theme.colors.lighteBlue};
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px ${p => p.theme.colors.lighteBlue}, 
+              0 0 15px ${p => p.theme.colors.lighteBlue};
+  color: ${p => p.theme.colors.white};
+  transition: 0.5s;
 `;
 
 export const SlideContent = styled.div`
@@ -106,7 +111,7 @@ export const SlideContent = styled.div`
 
 export const SlideProgressBar = styled.div`
   position: absolute;
-  right: 0;
+  right: 10px;
   background-color: ${p => p.theme.colors.black};
   width: 1px;
   height: 100%;  

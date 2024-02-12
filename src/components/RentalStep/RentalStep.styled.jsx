@@ -6,7 +6,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   row-gap: 8px;
-  padding: 0 8px;
+  padding: 0 27px;
   width: 100%;  
   opacity: 0;
   animation: animate 0.5s linear forwards;

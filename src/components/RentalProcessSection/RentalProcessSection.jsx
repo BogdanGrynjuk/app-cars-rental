@@ -10,15 +10,37 @@ const RentalProcessSection = () => {
 
   const breakpoints = Array.from({ length: 4 }, (_, index) => <Breakpoint key={index} />);
   const rentalStepsList = rentalSteps;
+  
+
+  const handleChangeActiveBreakpoint = (rentalStep) => {
+    const activeBreakpoint = document.querySelector('.active-breakpoint');
+  
+    const stepPositions = {
+      'step-1': '-12px',
+      'step-2': 'calc((100% / 3) - 12px)',
+      'step-3': 'calc((100% / 3) * 2 - 12px)',
+      'step-4': 'calc((100% / 3) * 3 - 12px)',
+    };
+
+    const position = stepPositions[rentalStep.getAttribute('id')];
+
+    if (position) {
+      activeBreakpoint.style.top = position;
+    };
+  };
 
   const handlePrevStep = () => {
     const step = activeStep - 1 < 0 ? rentalStepsList.length - 1 : activeStep - 1;
+    const rentalInstruction = document.getElementById(`step-${step + 1}`);
     setActiveStep(step);
+    handleChangeActiveBreakpoint(rentalInstruction);
   };
 
   const handleNextStep = useCallback(() => {
     const step = activeStep + 1 < rentalStepsList.length ? activeStep + 1 : 0;
-    setActiveStep(step);    
+    const rentalInstruction = document.getElementById(`step-${step + 1}`)
+    setActiveStep(step);
+    handleChangeActiveBreakpoint(rentalInstruction);
   }, [activeStep, rentalStepsList.length]);
 
   const handlePause = () => {
@@ -34,7 +56,7 @@ const RentalProcessSection = () => {
       if (autoplay) {
         handleNextStep();
       }
-    }, 3000);
+    }, 5000);
 
     return () => {
       clearInterval(timerId);
@@ -59,7 +81,7 @@ const RentalProcessSection = () => {
                   <RentalStep
                     key={index}
                     isActive={index === activeStep}                  
-                    id={`Step ${index + 1}`}
+                    id={`step-${index + 1}`}
                     icon={icon}
                     title={title}
                     description={description}
@@ -71,19 +93,14 @@ const RentalProcessSection = () => {
 
             <SlideProgressBar>
               {breakpoints}
-              <ActiveBreakpoint />
+              <ActiveBreakpoint className='active-breakpoint'>{activeStep + 1}</ActiveBreakpoint>
             </SlideProgressBar>
 
           </Slide>
-
         </SectionContent>
-
-      </GeneralContainer>
-      
+      </GeneralContainer>      
     </Section>
   );
 };
-
-
 
 export default RentalProcessSection;

@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  row-gap: 8px;
+  gap: 18px;
   padding: 0 27px;
   width: 100%;  
   opacity: 0;
@@ -25,27 +25,13 @@ export const Wrapper = styled.div`
 
   
    @media screen and (${p => p.theme.mq.tablet}) {
+    flex-direction: row;
+    width: 90%;
+  }
+
+  @media screen and (${p => p.theme.mq.desktop}) {
     width: 70%;
-  }
-
-  @media screen and (${p => p.theme.mq.desktop}) {
-    width: 50%;
-  } 
-  
-`;
-
-export const Title = styled.h3`
-  text-transform: uppercase;
-  font-size: ${p => p.theme.fontSizes.s};
-  font-weight: ${p => p.theme.fontWeights.bold};
-  
-  @media screen and (${p => p.theme.mq.tablet}) {
-    font-size: ${p => p.theme.fontSizes.l};
-  }
-
-  @media screen and (${p => p.theme.mq.desktop}) {
-    font-size: ${p => p.theme.fontSizes.xl}; 
-  } 
+  }  
 `;
 
 export const Icon = styled.div`
@@ -63,11 +49,37 @@ export const Icon = styled.div`
   }; 
 `;
 
+export const TextBlock = styled.div`  
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+
+  @media screen and (${p => p.theme.mq.tablet}) {
+    width: calc(100% - 118px);
+  }
+`;
+
+export const Title = styled.h3`
+  text-align: center;
+  text-transform: uppercase;
+  font-size: ${p => p.theme.fontSizes.s};
+  font-weight: ${p => p.theme.fontWeights.bold};
+  
+  @media screen and (${p => p.theme.mq.tablet}) {
+    font-size: ${p => p.theme.fontSizes.l};
+  }
+
+  @media screen and (${p => p.theme.mq.desktop}) {
+    font-size: ${p => p.theme.fontSizes.xl}; 
+  } 
+`;
+
 export const Description = styled.p`
   text-align: center;
   font-size: ${p => p.theme.fontSizes.xs};
   
   @media screen and (${p => p.theme.mq.tablet}) {
+    text-align: left;
     font-size: ${p => p.theme.fontSizes.s};
   }
 

@@ -50,7 +50,7 @@ export const Slide = styled.div`
 
 export const ButtonsWrapper = styled.div`
   position: absolute;  
-  bottom: 0;
+  bottom: -12px;
   display: flex;  
   column-gap: 18px;
 `;
@@ -124,6 +124,7 @@ export const Breakpoint = styled.div`
   width: 11px;
   height: 11px;
   border-radius: 50%;
+  cursor: pointer;
   
   &:nth-child( 1 ) { top: -5px; }
   &:nth-child( 2 ) { top: calc(  (100% / 3) - 5px ); }

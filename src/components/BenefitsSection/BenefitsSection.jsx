@@ -1,12 +1,23 @@
 import { useEffect, useRef } from 'react';
-import { handleIntersection } from 'helpers/handleIntersection';
 
 import GeneralContainer from 'components/GeneralContainer';
 import banner from 'images/kia.png';
 import { Section, SectionTitle, SectionContent, ThumbImg, BenefitsList, BenefitsItem, Marker } from './BenefitsSection.styled';
 
 const BenefitsSection = () => {
- const elementsRef = useRef([]);
+  const elementsRef = useRef([]);
+  
+  const handleIntersection = entries => {
+    entries.forEach(entry => {
+      const isIntersecting = entry.isIntersecting;
+
+      if (isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection);

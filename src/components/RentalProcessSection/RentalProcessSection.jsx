@@ -1,16 +1,26 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { ActiveBreakpoint, Breakpoint, BtnStepChange, ButtonsWrapper, IconArrowDown, IconArrowUp, Section, SectionContent, SectionTitle, Slide, SlideContent, SlideProgressBar } from './RentalProcessSection.styled'
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+
 import GeneralContainer from 'components/GeneralContainer';
 import { rentalSteps } from 'constants/dataRentalSteps';
 import RentalStep from 'components/RentalStep';
+import { ActiveBreakpoint, Breakpoint, BtnStepChange, ButtonsWrapper, IconArrowDown, IconArrowUp, Section, SectionContent, SectionTitle, Slide, SlideContent, SlideProgressBar } from './RentalProcessSection.styled'
 
 const RentalProcessSection = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [autoplay, setAutoplay] = useState(true);
+  const [autoplay, setAutoplay] = useState(false);
 
-  const breakpoints = Array.from({ length: 4 }, (_, index) => <Breakpoint key={index} />);
+  const elementsRef = useRef([]);
+
+  const breakpoints = Array.from({ length: 4 }, (_, index) => (
+    <Breakpoint key={index} onClick={() => handleBreakpointClick(index)} />
+  ));
   const rentalStepsList = rentalSteps;
   
+  const handleBreakpointClick = (index) => {
+    const rentalInstruction = document.getElementById(`step-${index + 1}`);
+    handleChangeActiveBreakpoint(rentalInstruction);
+    setActiveStep(index);
+  };
 
   const handleChangeActiveBreakpoint = (rentalStep) => {
     const activeBreakpoint = document.querySelector('.active-breakpoint');
@@ -41,15 +51,28 @@ const RentalProcessSection = () => {
     const rentalInstruction = document.getElementById(`step-${step + 1}`)
     setActiveStep(step);
     handleChangeActiveBreakpoint(rentalInstruction);
-  }, [activeStep, rentalStepsList.length]);
+  }, [activeStep, rentalStepsList]);
 
   const handlePause = () => {
-    setAutoplay(false);
+    setAutoplay(prevAutoplay => !prevAutoplay);
   };
 
   const handleResume = () => {
-    setAutoplay(true);
+    setAutoplay(prevAutoplay => !prevAutoplay);
   };
+
+  const handleIntersection = useCallback((entries) => {
+    entries.forEach((entry) => {
+      const isIntersecting = entry.isIntersecting;
+      if (isIntersecting) {
+        setAutoplay(true);
+      } else {
+        setAutoplay(false);
+        setActiveStep(0);
+      handleChangeActiveBreakpoint(document.getElementById(`step-1`));
+      }
+    });
+  }, []);
 
   useEffect(() => {
     const timerId = setInterval(() => {
@@ -63,13 +86,29 @@ const RentalProcessSection = () => {
     };
   }, [autoplay, handleNextStep]);
 
+   useEffect(() => {
+    const observer = new IntersectionObserver(handleIntersection);
+
+    const currentElements = elementsRef.current;
+
+    currentElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => {
+      currentElements.forEach((element) => {
+        observer.unobserve(element);
+      });
+    };
+   }, [handleIntersection]);
+
   return (
     <Section>
       <GeneralContainer>
         <SectionTitle>Instructions for renting a car</SectionTitle>
-        <SectionContent>
+        <SectionContent ref={(el) => el && elementsRef.current.push(el)}>
           
-          <Slide onMouseEnter={handlePause} onMouseLeave={handleResume}>          
+          <Slide onMouseEnter={handlePause} onMouseLeave={handleResume}>
 
             <ButtonsWrapper>
               <BtnStepChange type="button" onClick={handlePrevStep}><IconArrowUp /></BtnStepChange>
@@ -78,16 +117,15 @@ const RentalProcessSection = () => {
 
             <SlideContent>
               {rentalStepsList.map(({ icon, title, description }, index) => (
-                  <RentalStep
-                    key={index}
-                    isActive={index === activeStep}                  
-                    id={`step-${index + 1}`}
-                    icon={icon}
-                    title={title}
-                    description={description}
-                    step={`Step ${index + 1}`}
-                  />
-                )
+                <RentalStep
+                  key={index}
+                  isActive={index === activeStep}
+                  id={`step-${index + 1}`}
+                  icon={icon}
+                  title={title}
+                  description={description}
+                />
+              )
               )}
             </SlideContent>
 
@@ -98,7 +136,7 @@ const RentalProcessSection = () => {
 
           </Slide>
         </SectionContent>
-      </GeneralContainer>      
+      </GeneralContainer>
     </Section>
   );
 };

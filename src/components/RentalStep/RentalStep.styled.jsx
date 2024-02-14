@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { fadeIn, rotate360} from 'helpers/animationStyles';
 
 export const Wrapper = styled.div`
   display: none;
@@ -7,24 +8,14 @@ export const Wrapper = styled.div`
   justify-content: center;
   gap: 18px;
   padding: 0 27px;
-  width: 100%;  
-  opacity: 0;
-  animation: animate 0.5s linear forwards;
-
-  @keyframes animate {
-	  100% {
-      opacity: 1;
-      transform: translateY( 0vh );
-    }
-  }
+  width: 100%;
 
   ${p =>
     p.isActive &&
     `display: flex;`
   };
-
   
-   @media screen and (${p => p.theme.mq.tablet}) {
+  @media screen and (${p => p.theme.mq.tablet}) {
     flex-direction: row;
     width: 90%;
   }
@@ -34,7 +25,8 @@ export const Wrapper = styled.div`
   }  
 `;
 
-export const Icon = styled.div`
+export const AnimatedBorder = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,21 +34,55 @@ export const Icon = styled.div`
   width: 100px;
   height: 100px;
   overflow: hidden;
-  border: ${p => p.theme.borders.normal} ${p => p.theme.colors.blue};  
   
-  & > img {
-    object-fit: cover;    
-  }; 
+  &::after{
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: conic-gradient(transparent, transparent, transparent, ${p => p.theme.colors.blue});
+    animation: ${rotate360}  5s linear infinite;
+    animation-delay: -2.5s;
+  }
+
+  &::before{
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: conic-gradient(transparent, transparent, transparent, ${p => p.theme.colors.blue});
+    animation:  ${rotate360} 5s linear infinite;
+  }
+`;
+
+export const ThumbIcon = styled.div`
+  position: absolute;
+  inset: 2px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: ${p => p.theme.colors.white};
+  border-radius: calc(${p => p.theme.radii.normal} - 2px);
+  z-index: 1;  
+`;
+
+export const Icon = styled.img`
+  object-fit: cover;
+  z-index: 2;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s linear forwards; 
 `;
 
 export const TextBlock = styled.div`  
   display: flex;
   flex-direction: column;
   row-gap: 8px;
+  opacity: 0;
+  animation: ${fadeIn} 0.5s linear forwards;  
 
   @media screen and (${p => p.theme.mq.tablet}) {
     width: calc(100% - 118px);
-  }
+  }  
 `;
 
 export const Title = styled.h3`
@@ -64,8 +90,10 @@ export const Title = styled.h3`
   text-transform: uppercase;
   font-size: ${p => p.theme.fontSizes.s};
   font-weight: ${p => p.theme.fontWeights.bold};
+  color: ${p => p.theme.colors.blue};
   
   @media screen and (${p => p.theme.mq.tablet}) {
+    text-align: right;
     font-size: ${p => p.theme.fontSizes.l};
   }
 
@@ -100,4 +128,4 @@ export const NumberStep = styled.span`
   @media screen and (${p => p.theme.mq.desktop}) {
     font-size: ${p => p.theme.fontSizes.m}; 
   } 
-`
+`;

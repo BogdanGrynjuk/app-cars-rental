@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { fadeInFadeOut, backgroundChange } from "helpers/animationStyles";
 
 export const Section = styled.section`
   display: flex;
@@ -18,22 +19,7 @@ export const Section = styled.section`
   color: ${p => p.theme.colors.white};
   font-family: ${p => p.theme.fontFamily.manrope};  
   text-shadow: ${p => p.theme.colors.black} 1px 1px 2px;
-  animation: backgroundChange 15s linear infinite;
-
-  @keyframes backgroundChange {
-  0%, 26.67% {
-    background-image: url(${p => p.bgImages[0]});
-  }
-  33.33%, 60% {
-    background-image: url(${p => p.bgImages[1]});
-  }    
-  66.67%, 93.33% {
-    background-image: url(${p => p.bgImages[2]});
-  }
-  100% {
-    background-image: url(${p => p.bgImages[0]});
-  }    
-}
+  animation: ${p => backgroundChange(p.bgImages)} 15s linear infinite;
 `;
 
 export const Content = styled.div`
@@ -83,8 +69,7 @@ export const DecorLine = styled.div`
 export const AnimatedText = styled.h2`
   margin-bottom: 12px;  
   font-size: ${p => p.theme.fontSizes.l};
-  animation: textAnimation 5s linear infinite;
-  
+  animation: ${fadeInFadeOut} 5s linear infinite;  
   
   @media screen and (${p => p.theme.mq.tablet}) {
     font-size: ${p => p.theme.fontSizes.xl};    
@@ -92,18 +77,6 @@ export const AnimatedText = styled.h2`
 
   @media screen and (${p => p.theme.mq.desktop}) {
     font-size: ${p => p.theme.fontSizes.xxl};    
-  }  
-
-  @keyframes textAnimation {
-    0% {
-      opacity: 0;
-    }  
-    10%, 90% {
-      opacity: 1;
-    }  
-    100% {
-      opacity: 0;
-    }
   }    
 `;
 
@@ -131,4 +104,4 @@ export const Btn = styled.button`
   @media screen and (${p => p.theme.mq.tablet}) {
     width: 274px; 
   }  
-`
+`;

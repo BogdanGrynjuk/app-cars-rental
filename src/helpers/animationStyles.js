@@ -26,3 +26,45 @@ export const closingModal = keyframes`
   transform: translate(0, -100%);
   }
 `;
+
+export const fadeIn = keyframes`
+  100% {
+    opacity: 1;      
+  }
+`;
+
+export const rotate360 = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg); 
+  }
+`;
+
+export const fadeInFadeOut = keyframes`
+  0% {
+    opacity: 0;
+  }  
+  10%, 90% {
+    opacity: 1;
+  }  
+  100% {
+    opacity: 0;
+  }
+`;
+
+export const backgroundChange = bgImages => keyframes`
+  0%, 26.67% {
+    background-image: url(${bgImages[0]});
+  }
+  33.33%, 60% {
+    background-image: url(${bgImages[1]});
+  }    
+  66.67%, 93.33% {
+    background-image: url(${bgImages[2]});
+  }
+  100% {
+    background-image: url(${bgImages[0]});
+  }    
+`;

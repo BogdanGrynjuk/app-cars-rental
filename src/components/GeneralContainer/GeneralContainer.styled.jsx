@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   @media screen and (${p => p.theme.mq.tablet}) {
     width: 768px;
-    padding: 0 24px;
+    padding: 0 20px;
   }
 
   @media screen and (${p => p.theme.mq.desktop}) {

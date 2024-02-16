@@ -15,17 +15,45 @@ export const Section = styled.section`
 
 export const SectionTitle = styled.h2`
   margin-bottom: 16px;
+  text-transform: uppercase;
   text-align: center;
   font-size: ${p => p.theme.fontSizes.l};
   font-weight: ${p => p.theme.fontWeights.bold};  
   
   @media screen and (${p => p.theme.mq.tablet}) {
+    text-align: right;
     font-size: ${p => p.theme.fontSizes.xl};    
   }
 
   @media screen and (${p => p.theme.mq.desktop}) {
     font-size: ${p => p.theme.fontSizes.xxl};    
-  }   
+  }
+  
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    right: 0;    
+    background: linear-gradient(90deg, transparent 0%, ${p => p.theme.colors.blue} 50%, transparent 100%);
+    margin: 12px auto 0;
+    transition: width 2s linear;   
+  }
+
+  &.show::after {
+    width: 100%;
+    max-width: calc(320px - (8px * 2));    
+
+    @media screen and (${p => p.theme.mq.tablet}) {
+      max-width: calc(768px - (20px * 2));    
+    }
+
+    @media screen and (${p => p.theme.mq.desktop}) {
+      max-width: calc(1280px - (24px * 2));    
+    }
+  }
 `;
 
 export const SectionContent = styled.div`

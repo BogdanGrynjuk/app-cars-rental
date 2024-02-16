@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 import GeneralContainer from 'components/GeneralContainer';
 import banner from 'images/kia.png';
@@ -7,7 +7,7 @@ import { Section, SectionTitle, SectionContent, ThumbImg, BenefitsList, Benefits
 const BenefitsSection = () => {
   const elementsRef = useRef([]);
   
-  const handleIntersection = entries => {
+  const handleIntersection = useCallback(entries => {
     entries.forEach(entry => {
       const isIntersecting = entry.isIntersecting;
 
@@ -17,7 +17,7 @@ const BenefitsSection = () => {
         entry.target.classList.remove('show');
       }
     });
-  };
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(handleIntersection);
@@ -32,15 +32,15 @@ const BenefitsSection = () => {
         observer.unobserve(element);
       });
     };
-  }, []);
+  }, [handleIntersection]);
 
   return (
     <Section>
       <GeneralContainer>
-        <SectionTitle>Why clients choose us?</SectionTitle>
+        <SectionTitle ref={(el) => el && elementsRef.current.push(el)}>Why clients choose us?</SectionTitle>
         <SectionContent> 
  
-          <ThumbImg ref={(el) => el && elementsRef.current.push(el)} >
+          <ThumbImg  ref={(el) => el && elementsRef.current.push(el)}>
             <img src={banner} alt="blue auto" />
           </ThumbImg>      
       

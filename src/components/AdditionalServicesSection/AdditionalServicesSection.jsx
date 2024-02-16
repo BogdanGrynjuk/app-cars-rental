@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 
 import GeneralContainer from 'components/GeneralContainer';
 import { services } from 'constants/dataServices';
@@ -6,10 +6,39 @@ import { services } from 'constants/dataServices';
 import { BtnOrderService, Section, SectionContent, SectionTitle, ServiceDescription, ServiceDetails, ServiceIcon, ServiceName, ServicesItem, ServicesList } from './AdditionalServicesSection.styled';
 
 const AdditionalServicesSection = () => {
+   const elementsRef = useRef([]);
+  
+  const handleIntersection = useCallback(entries => {
+    entries.forEach(entry => {
+      const isIntersecting = entry.isIntersecting;
+
+      if (isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(handleIntersection);
+    const currentElements = elementsRef.current;
+
+    currentElements.forEach((element) => {
+      observer.observe(element);
+    });
+
+    return () => {
+      currentElements.forEach((element) => {
+        observer.unobserve(element);
+      });
+    };
+  }, [handleIntersection]);
+
   return (
     <Section>
       <GeneralContainer >
-        <SectionTitle>Additional Services</SectionTitle>
+        <SectionTitle ref={el => el && elementsRef.current.push(el)}>Additional Services</SectionTitle>
         <SectionContent>
           <ServicesList>
             {services.map((service, index) => {

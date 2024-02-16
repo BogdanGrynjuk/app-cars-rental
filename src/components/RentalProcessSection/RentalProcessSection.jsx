@@ -65,11 +65,13 @@ const RentalProcessSection = () => {
     entries.forEach((entry) => {
       const isIntersecting = entry.isIntersecting;
       if (isIntersecting) {
+        entry.target.classList.add('show');
         setAutoplay(true);
       } else {
+        entry.target.classList.remove('show');
         setAutoplay(false);
         setActiveStep(0);
-      handleChangeActiveBreakpoint(document.getElementById(`step-1`));
+        handleChangeActiveBreakpoint(document.getElementById(`step-1`));
       }
     });
   }, []);
@@ -105,7 +107,7 @@ const RentalProcessSection = () => {
   return (
     <Section>
       <GeneralContainer>
-        <SectionTitle>Instructions for renting a car</SectionTitle>
+        <SectionTitle ref={(el) => el && elementsRef.current.push(el)}>Instructions for renting car</SectionTitle>
         <SectionContent ref={(el) => el && elementsRef.current.push(el)}>
           
           <Slide onMouseEnter={handlePause} onMouseLeave={handleResume}>

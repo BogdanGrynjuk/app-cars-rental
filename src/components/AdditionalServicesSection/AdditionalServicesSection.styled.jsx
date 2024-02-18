@@ -107,7 +107,11 @@ export const ServicesItem = styled.li`
       transform: translate( -50%, -150% );
       width: calc(100% - 96px);
       height: calc(100% - 96px);
-      background-color: ${p => p.theme.colors.white};      
+      background-color: ${p => p.theme.colors.white};
+      background: linear-gradient(
+        180deg,  
+        ${p => p.theme.colors.white} 0%,  
+        ${p => p.theme.colors.white} 100%);      
     }
     
     & > .service-btn-order {
@@ -136,7 +140,8 @@ export const BtnOrderService = styled.div`
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px,
               rgba(0, 0, 0, 0.5) 0px 0px 10px;
-  background-color: ${p => p.theme.colors.white};
+  background-color: ${p => p.theme.colors.white};  
+ 
   transform: translate( -50% , -50% );
   z-index: 1;
   transition: 0.5s;
@@ -174,7 +179,11 @@ export const ServiceIcon = styled.div`
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px,
               rgba(0, 0, 0, 0.5) 0px 0px 10px;
-  background-color: ${p => p.theme.colors.blue};
+  background-color: ${ p => p.theme.colors.lighteBlue};
+  background: linear-gradient(
+    180deg, 
+    ${p => p.theme.colors.lighteBlue} 0%, 
+    ${p => p.theme.colors.blue} 100%); 
   transform: translate( -50% , -50% );
   transition: 0.5s;
   z-index: 2;

@@ -9,16 +9,17 @@ import AppBar from 'components/AppBar';
 import Loader from 'components/Loader';
 import ErrorDisplay from 'components/ErrorDisplay';
 
-import { Footer, Main } from './Layout.styled';
+import { Main } from './Layout.styled';
+import AppFooter from 'components/AppFooter';
 
 const Layout = () => {
   const dispath = useDispatch();
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
+  
   useEffect(() => {
     const header = document.getElementById('app-bar');
-    const content = document.getElementById('content');
+    const content = document.getElementById('app-content');
     const headerHeight = header.offsetHeight;
 
     content.style.paddingTop = `${headerHeight}px`;
@@ -29,7 +30,7 @@ const Layout = () => {
   return (
     <>
       <AppBar />
-      <Main id="content">
+      <Main id="app-content">
         <Suspense fallback={null}>
           {isLoading && <Loader />}
           {error
@@ -38,7 +39,7 @@ const Layout = () => {
           }
         </Suspense>
       </Main>
-      <Footer>this is footer</Footer>
+      <AppFooter/>
     </>
   );
 };

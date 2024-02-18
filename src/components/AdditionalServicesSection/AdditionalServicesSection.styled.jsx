@@ -68,7 +68,7 @@ export const SectionContent = styled.div`
 `;
 
 export const ServicesList = styled.ul`
-  padding: 48px;
+  padding: 68px 48px;
   display: flex;
   justify-content: center;
   align-items: center;

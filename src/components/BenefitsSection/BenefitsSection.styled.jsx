@@ -15,9 +15,8 @@ export const Section = styled.section`
   justify-content: start;
   align-items: center;
   overflow: hidden;
-  color: ${p => p.theme.colors.black};
-  font-family: ${p => p.theme.fontFamily.manrope};
-   
+  color: ${p => p.theme.colors.black};  
+  font-family: ${p => p.theme.fontFamily.manrope};   
 `;
 
 export const SectionTitle = styled.h2`

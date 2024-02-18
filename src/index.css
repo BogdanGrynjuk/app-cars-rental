@@ -22,9 +22,9 @@ body {
   letter-spacing: 0.02em;
   font-size: 14px;
   margin: 0 auto;
-  transition: 1.5s;
-  
+  transition: 1.5s;  
 }
+
 ::-webkit-scrollbar {
   width: 7px;
 }

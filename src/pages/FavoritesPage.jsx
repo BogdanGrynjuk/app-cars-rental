@@ -5,6 +5,7 @@ import { selectFavoriteCars } from "redux/selectors";
 
 import FavoriteSection from "components/FavoriteSection";
 import ErrorDisplay from "components/ErrorDisplay";
+import AdditionalServicesSection from "components/AdditionalServicesSection";
 
 import imageError from '../images/image_empty.svg';
 
@@ -17,12 +18,15 @@ const FavoritesPage = () => {
   const onClickBtnError = () => navigate('/catalog');  
    
   return (
-    <>      
+    <>
       {cars.length === 0
         ? <ErrorDisplay messageError={messageError} imageError={imageError} onButtonClick={onClickBtnError} buttonLabel={btnErrorLabel} showButton={true} />
-        : <FavoriteSection cars={cars} />
+        : <>
+          <FavoriteSection cars={cars} />
+          <AdditionalServicesSection />
+        </>
       }
-    </>   
+    </>
   );
 };
 

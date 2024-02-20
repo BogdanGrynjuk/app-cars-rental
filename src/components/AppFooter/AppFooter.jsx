@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ContactInfo, ContactMethod, ContactMethodText, ContactSection, Content, IconCall, IconMail, Link, ThumbIcon, Wrapper } from './AppFooter.styled';
+import { ContactInfo, ContactMethod, ContactMethodText, Content, IconCall, IconFb, IconIg, IconMail, IconYt, Link, MethodLabel, MethodValue, SocialLink, SocialMedia, ThumbIcon, Wrapper, WrapperSocialLinks } from './AppFooter.styled';
 import GeneralContainer from 'components/GeneralContainer';
 import Logo from 'components/Logo/Logo';
 
@@ -19,7 +19,7 @@ const AppFooter = () => {
     const content = document.getElementById('app-content');
     const footerHeight = footer.offsetHeight;
 
-    const minContentHeight = window.innerHeight + footerHeight + 1;
+    const minContentHeight = window.innerHeight + footerHeight;
 
     if (minContentHeight > content.offsetHeight) {
       content.style.minHeight = `${minContentHeight}px`;
@@ -43,43 +43,41 @@ const AppFooter = () => {
     <Wrapper id="app-footer">
       <GeneralContainer>
         <Content>
+
           <Link to="/"><Logo isLight /></Link>
           
-        
-          <ContactSection>
+          
             <ContactInfo>
               <ContactMethod href="tel:+380730000000" title="Our Phone Number">
                 <ThumbIcon className='thumb-icon'>
                   <IconCall />
-                </ThumbIcon>
-                  
-                
+                </ThumbIcon>               
                 <ContactMethodText>
-                  <span>Call us:</span>
-                  <span>+380730000000</span>
+                  <MethodLabel>Call us:</MethodLabel>
+                  <MethodValue>+380730000000</MethodValue>
                 </ContactMethodText>
               </ContactMethod>
                 
               <ContactMethod href="mailto:cargo@example.com" title="Our Email">
                 <ThumbIcon className='thumb-icon'>
-                  <IconMail size={30}/>
+                  <IconMail />
                 </ThumbIcon>
                 <ContactMethodText>
-                  <span>Mail us:</span>
-                <span>cargo@example.com</span>
+                  <MethodLabel>Mail us:</MethodLabel>
+                <MethodValue>cargo@example.com</MethodValue>
                 </ContactMethodText>
               </ContactMethod>
             </ContactInfo>
 
-            <div class="social-media">
-              <span>Follow us:</span>
-              <div class="social-links">
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">Youtube</a>
-              </div>
-            </div>          
-          </ContactSection>
+            <SocialMedia>
+              <MethodLabel>Follow us:</MethodLabel>
+              <WrapperSocialLinks>
+                <SocialLink href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><IconFb /></SocialLink>
+                <SocialLink href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><IconIg /></SocialLink>
+                <SocialLink href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><IconYt /></SocialLink>
+              </WrapperSocialLinks>
+            </SocialMedia>          
+          
         </Content>
         
       </GeneralContainer>

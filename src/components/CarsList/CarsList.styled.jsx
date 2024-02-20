@@ -8,8 +8,7 @@ export const Wrapper = styled.div`
   max-width: 320px;
   min-width: 320px;
   overflow: hidden;
-  padding: 8px;
-  padding-left: 2px;
+  padding: 8px 0 12px 2px;  
   font-family: ${p => p.theme.fontFamily.manrope};
   color: ${p => p.theme.colors.black};
 

@@ -6,6 +6,10 @@ export const Section = styled.section`
   display: flex; 
   color: ${p => p.theme.colors.black};
   font-family: ${p => p.theme.fontFamily.manrope};
+  background: linear-gradient( 
+    to bottom,  
+    ${p=>p.theme.colors.white}, 
+    ${p => p.theme.colors.greyForBgInput});
 `;
 
 export const SectionTitle = styled.h2`

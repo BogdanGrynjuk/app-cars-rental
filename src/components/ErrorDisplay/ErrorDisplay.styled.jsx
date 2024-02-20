@@ -2,9 +2,7 @@ import styled from "@emotion/styled";
 
 export const Section = styled.section`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1; 
+  padding-top: 18px;
 `;
 
 export const ThumbImg = styled.div`

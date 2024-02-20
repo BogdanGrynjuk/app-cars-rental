@@ -30,6 +30,7 @@ export const FormikForm = styled(Form)`
 
 
 export const FormikControl = styled.div`
+position: relative;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -111,11 +112,19 @@ export const Button = styled.button`
 
 
 export const ErrorMsg = styled(ErrorMessage)`
-  text-align: center;
-  color: red;
+  position: absolute;
+  bottom: -90%;
+  padding: 14px;
+  text-align: left; 
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.bold};
-  line-height: 16px;  
+  line-height: 16px;
+  border-radius: 14px; 
+  box-shadow: rgba(0, 0, 0, 0.5) 2px 8px 5px;
+  color: rgba(18, 20, 23, 0.5);
+
+  background-color: rgba(247, 247, 251, 1);
+  z-index: 1000;  
 `;
 
 

@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import Layout from "./Layout";
+import { useScrollToTop } from "hooks/useScrollToTop";
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const CatalogPage = lazy(() => import('pages/CatalogPage'));
@@ -10,6 +11,8 @@ const ErrorPage = lazy(() => import('pages/ErrorPage'));
 
 
 export const App = () => {
+  useScrollToTop();
+
   return (
     <Routes>
       <Route path='/' element={<Layout />}>

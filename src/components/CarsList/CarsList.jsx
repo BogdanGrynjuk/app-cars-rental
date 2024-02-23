@@ -4,6 +4,7 @@ import { List, TitleList, Wrapper } from "./CarsList.styled";
 import { useDispatch } from "react-redux";
 import { setActiveCard } from "redux/favoriteSlice";
 import { useState, useEffect } from "react";
+import { scrollToTop } from "helpers/scrollToTop";
 
 const CarsList = ({ cars }) => {
   const [activeCarItem, setActiveCarItem] = useState(0);
@@ -30,7 +31,10 @@ const CarsList = ({ cars }) => {
               key={car.id}
               car={car}
               isItemList={true}
-              showCardCar={() => handleShowCardCar(car, index)}             
+              showCardCar={() => {
+                handleShowCardCar(car, index);
+                scrollToTop();
+              }}             
             />
           ))}
         </List>

@@ -48,7 +48,7 @@ export const Label = styled.label`
 export const GroupInputs = styled.div`
   display: flex;
   height: 48px;
-  border-radius: 14px; 
+  border-radius: 12px; 
   box-shadow: rgba(0, 0, 0, 0.5) 2px 3px 5px;
   overflow: hidden;
 
@@ -78,7 +78,13 @@ export const Input = styled(Field)`
 
   &[name="mileage.from"]{
     border-right: ${p => p.theme.borders.normal} ${p => p.theme.colors.lighteGrey};
-  };  
+  };
+  
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const BtnControl = styled.div`
@@ -113,16 +119,16 @@ export const Button = styled.button`
 
 export const ErrorMsg = styled(ErrorMessage)`
   position: absolute;
-  bottom: -90%;
+  width: 100%;
+  top: calc(100% + 8px);
   padding: 14px;
   text-align: left; 
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.bold};
   line-height: 16px;
-  border-radius: 14px; 
+  border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.5) 2px 8px 5px;
   color: rgba(18, 20, 23, 0.5);
-
   background-color: rgba(247, 247, 251, 1);
   z-index: 1000;  
 `;

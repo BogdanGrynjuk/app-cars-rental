@@ -26,10 +26,12 @@ const customStyles = {
   
   menu: provided =>  ({
     ...provided,
-    padding: '14px 8px',
-    borderRadius: '12px',
+    padding: '14px',
+    borderRadius: '12px',   
+    backgroundColor: 'rgba(247, 247, 251, 1)',
     boxShadow:" rgba(0, 0, 0, 0.5) 2px 8px 5px",
   }),
+
   menuList: provided => ({
     ...provided,
     paddingRight: '8px',
@@ -41,6 +43,7 @@ const customStyles = {
       borderRadius: '12px',
     },
   }),
+
   option: (provided, state) => ({
     ...provided,        
     backgroundColor: 'transparent',
@@ -52,6 +55,19 @@ const customStyles = {
         backgroundColor: "transparent",
       },
   }),
+  noOptionsMessage: (provided, state) => {
+    console.log(provided);
+    return {
+      ...provided,
+      textAlign: 'left',
+      padding: 0,
+      fontFamily: 'Manrope, sans-serif',
+      fontSize: '12px',
+      fontWeight: 600,      
+      display: 'block',
+      color: ' rgba(18, 20, 23, 0.5)',
+    }
+  },
   dropdownIndicator: (provided, state) => {    
     return ({
       ...provided,

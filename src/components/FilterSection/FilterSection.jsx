@@ -39,6 +39,11 @@ const FilterSection = () => {
     },
   };
 
+  const handleInputChangeWithLeadingZeros = (event) => {
+    const value = parseInt(event.target.value, 10);
+    event.target.value = isNaN(value) ? '' : value;
+  };  
+
   const handleSubmit = (values) => {    
     dispatch(updateFilter(values));
   };    
@@ -55,6 +60,7 @@ const FilterSection = () => {
       from: Yup.number()
         .positive('Mileage must be a positive number')
         .integer('Vehicle mileage must be an integer')
+        .moreThan(-1, 'Vehicle mileage must be a non-negative integer')
         .max(maxMileage, `The highest mileage in our catalog ${maxMileage}`)
         .test({
           name: 'checkMileageRange',
@@ -68,6 +74,7 @@ const FilterSection = () => {
       to: Yup.number()
         .positive('Mileage must be a positive number')
         .integer('Vehicle mileage must be an integer')
+        .moreThan(-1, 'Vehicle mileage must be a non-negative integer')
         .min(minMileage, `Lowest mileage in our catalog ${minMileage}`)
         .when('from', (from, schema) => {
           return schema.test({
@@ -88,7 +95,6 @@ const FilterSection = () => {
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
           validateOnChange={false}
-          validateOnBlur={false}
         >
           {formik => (
             <FormikForm>
@@ -109,11 +115,11 @@ const FilterSection = () => {
 
                 <GroupInputs>
                   <FormikControl>
-                    <Input type="number" name="mileage.from" placeholder="From" />                    
+                    <Input type="number" name="mileage.from" placeholder="From"  onBlur={handleInputChangeWithLeadingZeros}/>                    
                   </FormikControl>
           
                   <FormikControl>
-                    <Input type="number" name="mileage.to" placeholder="To" />                    
+                    <Input type="number" name="mileage.to" placeholder="To"  onBlur={handleInputChangeWithLeadingZeros}/>                    
                   </FormikControl>
                 </GroupInputs>
                 <ErrorMsg name="mileage.from" component={'div'} />

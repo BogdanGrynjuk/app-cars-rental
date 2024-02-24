@@ -1,24 +1,41 @@
+import { useEffect } from 'react';
 import { Oval } from 'react-loader-spinner';
-import { Text, Content, Wrapper } from './Loader.styled';
+import { Content, Wrapper, TextContainer, Car, Dots } from './Loader.styled';
 
 const Loader = () => {
-  return (
+
+  useEffect(() => {
+    document.body.style.overflowY = 'hidden';
+    return () => {
+      document.body.style.overflowY = 'auto';
+    }
+  });
+
+  return (    
     <Wrapper>
       <Content>
-        <Text>Loading...</Text>
-        <Oval
-          ariaLabel="loading-indicator"
-          height={150}
-          width={150}
-          strokeWidth={5}
-          strokeWidthSecondary={3}
-          color="rgba(11, 68, 205, 1)"
-          secondaryColor="rgba(52, 112, 255, 1)"
-          visible={true}
-        />
+        <Car>
+          <div className="strike"></div>
+          <div className="strike strike2"></div>
+          <div className="strike strike3"></div>
+          <div className="strike strike4"></div>
+          <div className="strike strike5"></div>
+          <div className="car-detail spoiler"></div>
+          <div className="car-detail back"></div>
+          <div className="car-detail center"></div>
+          <div className="car-detail center1"></div>
+          <div className="car-detail front"></div>
+          <div className="car-detail wheel"></div>
+          <div className="car-detail wheel wheel2"></div>
+        </Car>
+
+        <TextContainer>
+          <span>Loading</span>
+          <Dots>...</Dots>
+        </TextContainer>
       </Content>
     </Wrapper>
-  );
+  )
 };
 
 export default Loader;

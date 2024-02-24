@@ -29,10 +29,11 @@ const Layout = () => {
   
   return (
     <>
+      {isLoading && <Loader />}
       <AppBar />
       <Main id="app-content">
         <Suspense fallback={null}>
-          {isLoading && <Loader />}
+          
           {error
             ? < ErrorDisplay messageError={error} imageError="https://cdn.rawgit.com/ahmedhosna95/upload/1731955f/sad404.svg" />
             : <Outlet />

@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Oval } from 'react-loader-spinner';
 import { Content, Wrapper, TextContainer, Car, Dots } from './Loader.styled';
 
 const Loader = () => {

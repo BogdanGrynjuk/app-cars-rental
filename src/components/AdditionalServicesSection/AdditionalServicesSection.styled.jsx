@@ -140,8 +140,7 @@ export const BtnOrderService = styled.div`
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px,
               rgba(0, 0, 0, 0.5) 0px 0px 10px;
-  background-color: ${p => p.theme.colors.white};  
- 
+  background-color: ${p => p.theme.colors.white}; 
   transform: translate( -50% , -50% );
   z-index: 1;
   transition: 0.5s;
